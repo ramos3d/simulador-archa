@@ -1,4 +1,4 @@
-name: Deploy DEV
+name: Deploy DEV (FTPS)
 
 on:
   push:
@@ -13,14 +13,15 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Deploy to DEV server
-        uses: appleboy/scp-action@v0.1.7
+      - name: Upload to dev.archa.com.br via FTPS
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
-          host: ${{ secrets.SSH_HOST }}
-          username: ${{ secrets.SSH_USER }}
-          key: ${{ secrets.SSH_KEY }}
-          passphrase: ${{ secrets.SSH_PASSPHRASE }}
-          port: ${{ secrets.SSH_PORT }}
-          source: "."
-          target: ${{ secrets.DEPLOY_PATH }}
-          rm: true
+          server: ${{ secrets.FTP_HOST }}
+          username: ${{ secrets.FTP_USER }}
+          password: ${{ secrets.FTP_PASS }}
+          port: ${{ secrets.FTP_PORT }}
+          protocol: ftps
+          security: strict
+          local-dir: ./
+          server-dir: dev.archa.com.br/
+          dangerous-clean-slate: true
