@@ -1,0 +1,657 @@
+:root {
+    --archa-azul: #262942;
+    /* título, links */
+    --archa-azul-2: #2D365F;
+    /* caixas, bordas */
+    --archa-lilac: #AC9CCF;
+    /* detalhes */
+    --archa-cta: #BEB6C8;
+    /* botão desativado */
+    --archa-ok: #2fbd7a;
+    /* pix/ok */
+    --archa-danger: #d9534f;
+    --archa-verde: #D4FFAD;
+    --bg-right: #f9fafa;
+}
+
+/* opção clássica */
+html {
+    overflow-x: hidden;
+}
+
+/* ====== Plano de fundo 50/50 ====== */
+body.checkout-page {
+    min-height: 110dvh;
+    /* branco à esquerda, cinza à direita */
+    background: #fff;
+
+}
+
+/* Estrutura */
+.checkout-wrap {
+    padding: 2rem 0 4rem
+}
+
+/* Apenas em Desktop */
+@media (min-width: 992px) {
+    body.checkout-page {
+        background: linear-gradient(to right, #ffffff 0 50%, var(--bg-right) 50% 100%);
+    }
+
+    .checkout-wrap {
+        padding: 3rem 0 5rem;
+    }
+
+    .col-md-2-1 {
+        flex: 0 0 auto;
+        width: 17.6666%;
+    }
+
+    .col-md-4-1 {
+        flex: 0 0 auto;
+        width: 32.33333333%;
+    }
+
+    /* fundo do lado direito */
+    .bg-right {
+        background: #f9fafa;
+    }
+
+    /* altura e espaçamento do split */
+    .checkout-split {
+        min-height: 100vh;
+    }
+
+    .mobile-only {
+        display: none;
+    }
+
+    desktop-only {
+        display: block;
+    }
+
+}
+
+/* Apenas em Mobile */
+@media (max-width: 991.98px) {
+    .mobile-only {
+        display: block;
+    }
+
+    #reviewHeader {
+        position: relative;
+        z-index: 1;
+        transition: box-shadow .2s
+    }
+
+    /* quando fixar no topo */
+    #reviewHeader.is-fixed {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1030;
+        background: #fff;
+        border-bottom: 1px solid #eee;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, .08);
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+    }
+
+    /* espaçador para evitar “salto” no layout quando fixar */
+    #reviewSpacer {
+        height: 0
+    }
+
+    .desktop-only {
+        display: none;
+    }
+
+
+
+    .address-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+        /* equivalente ao g-3 */
+        grid-template-areas:
+            "endereco endereco"
+            "numero   cep"
+            "complemento complemento"
+            "estado   bairro";
+    }
+
+    /* neutraliza larguras flex no mobile para o grid mandar */
+    .address-grid>.col-md-6,
+    .address-grid>.col-md-2-1,
+    .address-grid>.col-md-4-1 {
+        flex: none;
+        width: auto;
+    }
+
+    /* mapeia áreas */
+    .address-grid .fld-endereco {
+        grid-area: endereco;
+    }
+
+    .address-grid .fld-numero {
+        grid-area: numero;
+    }
+
+    .address-grid .fld-cep {
+        grid-area: cep;
+    }
+
+    .address-grid .fld-complemento {
+        grid-area: complemento;
+    }
+
+    .address-grid .fld-estado {
+        grid-area: estado;
+    }
+
+    .address-grid .fld-bairro {
+        grid-area: bairro;
+    }
+}
+
+.topo-cartao {
+    margin-top: -34px;
+}
+
+.review-mobile-section {
+    margin-top: 36px;
+    margin-bottom: -10px;
+}
+
+.mobile-pagamento-section {
+    margin-top: -22px;
+}
+
+.mobile-totais-section {
+    margin-top: -34px;
+}
+
+.mobile-cta-section {
+    margin-top: -30px;
+}
+
+.cupom-top-custom {
+    margin-top: -46px;
+}
+
+.mt-27 {
+    margin-top: -27px;
+}
+
+.desktop-cta {
+    margin-top: -76px;
+}
+
+.desktop-subtotal-37 {
+    margin-top: -37px;
+}
+
+/* ====== Cards (sem borda) ====== */
+.ck-card {
+    background: #fff;
+    border: 0 !important;
+    border-radius: 14px;
+    box-shadow: none;
+
+}
+
+.ck-head {
+    padding: 1rem 1.25rem;
+    border-bottom: 0;
+}
+
+.ck-body {
+    padding: 1.25rem;
+}
+
+.ck-title {
+    font-weight: 700;
+    color: var(--archa-azul);
+    font-size: 20px;
+}
+
+.ck-muted {
+    color: #7c7f92;
+}
+
+/* Botões de método de pagamento */
+
+
+.secure-note img {
+    width: 18px;
+    height: 18px;
+    margin-right: .35rem
+}
+
+.pay-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: .6rem;
+    padding: .625rem .9rem;
+    cursor: pointer;
+    line-height: 1;
+    border: 1px solid #6C757D;
+    color: #6C757D;
+    border-radius: 4px;
+}
+
+.pay-btn.active {
+    background-color: #D4FFAD;
+    color: #262942;
+    border: none;
+}
+
+.pay-btn img {
+    display: block;
+}
+
+/* Inputs */
+.form-control f-exo,
+.form-select {
+    border-radius: 10px
+}
+
+.unit-input .unit {
+    position: absolute;
+    right: .75rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #8b8fa3;
+    font-weight: 600
+}
+
+.btn-archa-primary {
+    background: #D4FFAD;
+    border: none;
+    color: var(--archa-azul);
+    font-family: 'Exo2', sans-serif !important;
+    border-radius: 10px;
+    padding: .50rem 1rem
+}
+
+.btn-archa-primary:hover {
+    background: #C1E899;
+}
+
+.btn-archa-primary:disabled {
+    background: #D1CCDE;
+}
+
+.btn-aplicar {
+    background: #1254cc;
+    color: #fff;
+    border-radius: 4px;
+    padding: .5rem 1rem;
+    font-weight: 500;
+}
+
+.btn-aplicar:disabled {
+    background-color: #D1CCDE;
+    border: none;
+    color: #fff;
+}
+
+
+.me-1 {
+    margin-left: 1rem;
+}
+
+.link {
+    text-decoration: underline;
+    color: #1254cc;
+}
+
+/* Lista da revisão à direita */
+.resume-title {
+    font-weight: 700;
+    color: var(--archa-azul);
+    font-size: 20px;
+}
+
+.resume-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.resume-list li {
+    display: flex;
+    justify-content: space-between;
+    gap: .75rem;
+    padding: .4rem 0;
+
+}
+
+.resume-list small {
+    color: var(--archa-azul)
+}
+
+.margem-custom-bottom {
+    margin-bottom: 1.9rem;
+}
+
+.price-big {
+    font-size: 36px;
+    line-height: 1.1;
+    font-weight: 800;
+    color: #1254cc;
+}
+
+/* Inputs */
+.form-control,
+.form-select {
+    border-radius: 10px;
+}
+
+
+
+.btn-archa-primary:disabled {
+    opacity: .9;
+    color: #fff;
+}
+
+/* Utilidades */
+.none {
+    text-decoration: none;
+}
+
+.btn-refazer-pedido {
+    background-color: #262942;
+    color: #D4FFAD;
+}
+
+.btn-refazer-pedido:hover {
+    background-color: #1E2545;
+    color: #c2ea9e;
+}
+
+.f-12 {
+    font-size: 12px;
+}
+
+.f-14 {
+    font-size: 14px;
+}
+
+.f-18 {
+    font-size: 18px;
+}
+
+.f-22 {
+    font-size: 22px;
+}
+
+.form-control,
+.form-select {
+    border-radius: 4px !important;
+}
+
+.btn {
+    border-radius: 4px;
+}
+
+/* Placeholders em inputs e textareas */
+input::placeholder,
+textarea::placeholder,
+.form-control::placeholder {
+    color: #D1CCDE;
+    opacity: 1;
+    /* Firefox */
+}
+
+/* Prefixos para compatibilidade */
+input::-webkit-input-placeholder,
+textarea::-webkit-input-placeholder,
+.form-control::-webkit-input-placeholder {
+    color: #D1CCDE;
+}
+
+input::-moz-placeholder,
+textarea::-moz-placeholder,
+.form-control::-moz-placeholder {
+    color: #D1CCDE;
+    opacity: 1;
+}
+
+input:-ms-input-placeholder,
+textarea:-ms-input-placeholder,
+.form-control:-ms-input-placeholder {
+    color: #D1CCDE;
+}
+
+input::-ms-input-placeholder,
+textarea::-ms-input-placeholder,
+.form-control::-ms-input-placeholder {
+    color: #D1CCDE;
+}
+
+
+/* cor “placeholder” quando nada foi escolhido */
+.select-placeholder:invalid {
+    color: #D1CCDE !important;
+}
+
+/* garante cor normal após selecionar uma UF */
+.select-placeholder option {
+    color: #272A35;
+    /* cor do texto real */
+}
+
+/* mantém a option placeholder nessa cor */
+.select-placeholder option[disabled] {
+    color: #D1CCDE !important;
+}
+
+/* Safari/WebKit extra seguro */
+.select-placeholder:not(:focus):invalid {
+    color: #D1CCDE !important;
+}
+
+.form-label {
+    font-size: 14px;
+}
+
+/* remove o ícone de "check" e o extra de padding */
+.form-control.is-valid,
+.was-validated .form-control:valid {
+    background-image: none !important;
+    padding-right: .75rem !important;
+    /* volta ao normal */
+    border-color: #D4FFAD !important;
+    /* verde claro */
+}
+
+.form-select.is-valid,
+.was-validated .form-select:valid {
+    background-image: none !important;
+    padding-right: .75rem !important;
+    /* volta ao normal */
+    border-color: #D4FFAD !important;
+    /* verde claro */
+}
+
+
+/* Não mude a cor do label quando o checkbox/radio estiver válido ou inválido */
+.form-check-input.is-valid~.form-check-label,
+.was-validated .form-check-input:valid~.form-check-label,
+.form-check-input.is-invalid~.form-check-label,
+.was-validated .form-check-input:invalid~.form-check-label {
+    color: inherit !important;
+    /* ou defina uma cor fixa, ex: #272A35 */
+}
+
+/* 2) Anula o “valid” do Bootstrap (sem cor, sem sombra, sem ícone extra) */
+.form-check-input.is-valid,
+.was-validated .form-check-input:valid {
+    background-color: transparent !important;
+
+    border-color: inherit;
+    /* ou defina uma cor fixa */
+    box-shadow: none !important;
+}
+
+/* 1) Borda verde-clara só quando o CUPOM tiver texto */
+#cupom.has-value {
+    border-color: #D4FFAD !important;
+}
+
+/* 2) Remover foco (glow/outline) de inputs/selects/checkboxes */
+.form-control:focus,
+.form-select:focus,
+.form-check-input:focus,
+.btn:focus {
+    outline: 0 !important;
+    box-shadow: none !important;
+}
+
+/* Checkbox padrão */
+.form-check-input {
+    width: 1.1rem;
+    height: 1.1rem;
+}
+
+/* Quando marcado: usa seu ícone */
+
+
+/* remove o destaque de foco/click do BS5 */
+.form-check-input:focus,
+.form-check-input:active,
+.form-check-input:focus-visible {
+    outline: 0 !important;
+    box-shadow: none !important;
+}
+
+.logo-alignment-desktop {
+    margin-left: 19px;
+}
+
+.whatsapp-alignment {
+    margin-right: 17px;
+}
+
+main.checkout-wrap {
+    position: relative;
+    z-index: 0;
+}
+
+
+.form-check-input:checked[type="checkbox"] {
+    background-color: #D4FFAD;
+    border-color: transparent;
+    background-image: url("../images/checked.png");
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.text-azul {
+    color: var(--archa-azul) !important;
+}
+
+
+/* Ícone da bandeira dentro do input #cardNumber */
+#cardNumber.cc-brand {
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 41px auto;
+    padding-right: 44px;
+}
+
+.pad-5 {
+    padding-top: 5px;
+}
+
+
+/* dá espaço para o ícone sem esmagar o texto */
+.card-number-with-icon {
+    padding-right: 44px;
+    /* >= largura do ícone + espaçamento */
+}
+
+/* ícone posicionado e alinhado em coordenadas INTEIRAS */
+.card-brand-icon {
+    position: absolute;
+    right: 12px;
+    
+    top: 0;
+    bottom: 0;
+    
+    margin: auto 0;
+    
+    width: 28px;
+    
+    height: 20px;
+    pointer-events: none;
+    
+    display: block;
+}
+
+/* quando quiser sumir/aparecer */
+.card-brand-icon.d-none {
+    display: none !important;
+}
+
+
+
+
+
+
+
+
+ 
+/* Botão outline azul Archa */
+  .btn-outline-azull {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+
+    padding: 8px 14px;
+    border-radius: 12px;
+    border: 2px solid #262942;
+    background-color: #ffffff;
+
+    color: #262942;
+    font-size: 1rem;
+    font-weight: 500;
+    text-decoration: none;
+    line-height: 1;
+
+    transition: background-color 0.2s ease,
+      color 0.2s ease,
+      box-shadow 0.2s ease,
+      transform 0.1s ease;
+  }
+
+  /* Ícone dentro do botão */
+  .btn-outline-azull .btn-icon-whatsapp {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .btn-outline-azull .btn-icon-whatsapp img {
+    display: block;
+    width: 32px;
+    height: 32px;
+  }
+
+  /* Hover / foco */
+  .btn-outline-azull:hover,
+  .btn-outline-azull:focus {
+    background-color: #262942;
+    color: #ffffff;
+    text-decoration: none;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    transform: translateY(-1px);
+  }
+
+  /* Para manter o ícone colorido mesmo com hover escuro */
+  .btn-outline-azull:hover .btn-icon-whatsapp img,
+  .btn-outline-azull:focus .btn-icon-whatsapp img {
+    filter: none;
+  }

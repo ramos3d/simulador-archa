@@ -1,0 +1,103 @@
+#step-2 {
+  max-width: 800px;
+}
+
+#step-4 {
+  max-width: 1000px;
+  width: 100%;
+}
+
+#step-8,
+#step-9 {
+  max-width: 876px;
+}
+
+/* ================================================================
+   Etapa 8 – cartas multisseleção ( .opcao-8 )
+   ================================================================ */
+.opcao-8,
+.opcao-9 {
+  border: 2px solid #E2E6ED;
+  border-radius: 14px;
+  padding: 1.2rem 1.45rem;
+  background: #fff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, .04);
+  transition: all .18s ease-in-out;
+  min-height: 105px;
+}
+
+.opcao-8:hover {
+  box-shadow: 0 6px 16px rgba(0, 0, 0, .08);
+}
+
+.opcao-8 p {
+  text-align: left;
+}
+
+.opcao-9 p {
+  text-align: left;
+}
+
+/* indicador circular (vale p/ 8 e 9) --------------------------------*/
+.check-indicator {
+  flex: 0 0 22px;
+  width: 22px;
+  height: 22px;
+  border: 2px solid #C8CBD3;
+  border-radius: 50%;
+  background: #fff;
+  position: relative;
+  transition: background .15s, border-color .15s;
+}
+
+/* ✔ estado ativo – mesmo verde da etapa 8 */
+.opcao-8.selected,
+.opcao-9.selected {
+  /* <- novo */
+  border-color: #7FDD53 !important;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, .18);
+}
+
+.opcao-8.selected .check-indicator,
+.opcao-9.selected .check-indicator {
+  /* <- novo */
+  border-color: #7FDD53;
+  background: #7FDD53;
+}
+
+.opcao-8.selected .check-indicator::after,
+.opcao-9.selected .check-indicator::after {
+  /* <- novo */
+  content: "";
+  position: absolute;
+  inset: 4px;
+  background: #fff;
+  border-radius: 50%;
+}
+
+/* texto acinzentado p/ cards não-selecionados */
+.opcao-8:not(.selected) p,
+.opcao-9:not(.selected) p {
+  /* <- novo */
+  color: #6C757D;
+}
+
+.regular-inputs {
+  border: var(--bs-border-width) solid var(--bs-border-color) !important;
+  border-radius: var(--bs-border-radius) !important;
+}
+
+.btn-azul {
+  display: block;
+  margin: 1.5rem auto 0;
+  background-color: #1254CC;
+  color: #fff;
+  padding: 1%;
+  border-radius: 7px;
+  border: none;
+}
+
+.btn-azul:hover {
+  color: #fff;
+  background-color: #0e44aa;
+}

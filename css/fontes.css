@@ -1,0 +1,61 @@
+@font-face {
+    font-family: 'Anek';
+    src: url('../fonts/anek-regular.ttf') format('truetype');
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: 'Anek';
+    src: url('../fonts/anek-bold.ttf') format('truetype');
+    font-weight: 700;
+}
+
+@font-face {
+    font-family: 'Exo2';
+    src: url('../fonts/exo2-regular.ttf') format('truetype');
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: 'Exo2';
+    src: url('../fonts/exo2-bold.ttf') format('truetype');
+    font-weight: 700;
+}
+@font-face {
+    font-family: 'Exo2Medium';
+    src: url('../fonts/exo2-medium.ttf') format('truetype');
+    font-weight: 500;
+}
+@font-face {
+    font-family: 'ZillaSlab';
+    src: url('../fonts/zillaSlab-regular.ttf') format('truetype');
+    font-weight: 400;
+}
+@font-face {
+    font-family: 'ZillaSlabMedium';
+    src: url('../fonts/zillaSlab-medium.ttf') format('truetype');
+    font-weight: 500;
+}
+
+.f-anek {
+    font-family: 'Anek', sans-serif;
+}
+
+.f-exo {
+    font-family: 'Exo2', sans-serif!important;
+}
+
+.f-bold {
+    font-weight: 700;
+}
+
+.f-regular {
+    font-weight: 400;
+}
+
+.f-zilla {
+    font-family: 'ZillaSlab', serif;
+}
+.f-zilla-m{
+    font-family: 'ZillaSlabMedium', serif!important;
+}

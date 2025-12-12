@@ -1,0 +1,638 @@
+/* card-orcamento.css – layout do card de preços do simulador */
+
+/* Paleta e ajustes gerais ----------------------------------------------- */
+:root {
+    --verde: #D4FFAD;
+    --verde-borda: #7FDD53;
+    --rosa: #E893C7;
+    --roxo: #DEBDF2;
+    --azul: #262942;
+    --cinza: #D1CCDE;
+    --azul-claro: #94CCFC;
+
+    /* Usado pelo JS para calcular posição da lista fixa de vantagens */
+    --cardH: 0px;
+    --cardW: 340px;
+}
+
+/* ---------------------------------------------------------------------- */
+/* HEADER DOS PLANOS                                                      */
+/* ---------------------------------------------------------------------- */
+
+
+
+/* Selo de desconto “15% OFF à vista” ------------------------------- */
+.badge-off {
+    display: inline-block;
+    margin-left: 0.45rem;
+    padding: 0.15rem 0.65rem;
+    border-radius: 5px;
+    border: 1px solid var(--azul-claro);
+    background: #E7F0FF;
+    font-size: 0.7rem;
+    font-weight: 700;
+    
+}
+
+/* ---------------------------------------------------------------------- */
+/* LISTAS DE BENEFÍCIOS                                                  */
+/* ---------------------------------------------------------------------- */
+
+.benef-list,
+.vant-list {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+}
+
+.benef-list li,
+.vant-list li {
+    font-size: 0.875rem;
+    font-family: 'Exo2', sans-serif;
+    color: #262942;
+    padding-left: 22px;
+    position: relative;
+    padding-bottom: 5px;
+}
+
+.benef-list li::before,
+.vant-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 5px;
+    width: 14px;
+    height: 14px;
+    background: url(../images/bullet-green.svg) center/contain no-repeat;
+}
+
+/* Lista de vantagens com ícone verde (parte inferior) */
+.vant-list li::before {
+    background-image: url(../images/check-green.svg);
+}
+
+/* Link “todas as vantagens” (se voltar a ser usado) */
+.vant-link {
+    display: inline-block;
+    margin-top: 0.75rem;
+    font-size: 0.875rem;
+}
+
+/* ---------------------------------------------------------------------- */
+/* BLOCO DE VANTAGENS FIXAS / SECUNDÁRIAS                                */
+/* ---------------------------------------------------------------------- */
+
+.vant-card {
+    position: static !important;
+    top: auto !important;
+    width: var(--cardW);
+    padding: 0 0.5rem;
+    margin-left: -16px !important;
+    padding-right: 25px !important;
+}
+
+.lista-beneficios-customizada {
+    margin-left: 0 !important;
+    padding-right: 9px !important;
+}
+
+.space-line li {
+    margin-bottom: 7px;
+}
+
+/* Pequeno ajuste para o conteúdo interno do card */
+.card-m9 {
+    margin-left: -9px !important;
+    margin-right: -9px !important;
+}
+
+/* ---------------------------------------------------------------------- */
+/* OUTROS COMPONENTES DO SIMULADOR (mantidos como estavam)               */
+/* ---------------------------------------------------------------------- */
+
+#planAccordion ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.tipo-filter.active,
+.tipo-filter:hover {
+    border-color: #D4FFAD;
+    color: #262942;
+}
+
+.fade-img {
+    opacity: 0;
+    transform: translateY(10px);
+    transition: 0.4s;
+}
+
+.fade-img.show {
+    opacity: 1;
+    transform: none;
+}
+
+@media (min-width: 1600px) {
+    .container-xl {
+        max-width: 1440px;
+    }
+}
+
+.azul {
+    color: var(--azul);
+}
+
+.lil {
+    font-size: 14px;
+}
+
+.step-badge {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: var(--verde);
+    color: var(--azul);
+    font-weight: 800;
+    font-family: 'Anek', sans-serif;
+    font-size: 30px;
+    padding-top: 9px;
+}
+
+#card-pass1 .toggle-icon {
+    width: 18px;
+    height: 18px;
+    transition: transform 0.25s;
+}
+
+#card-pass1 .accordion-button.collapsed .toggle-icon {
+    transform: rotate(180deg);
+}
+
+/* Botões de tipo de projeto -------------------------------------------- */
+.btn-tipo {
+    border: 2px solid var(--cinza);
+    border-radius: 10px;
+    font-family: 'ZillaSlab', serif;
+    padding: 0.4rem 3rem;
+    background: #fff;
+    color: #6C757D;
+    transition: 0.2s;
+}
+
+.btn-tipo.active,
+.btn-tipo:hover {
+    background: var(--verde);
+    border-color: var(--verde);
+}
+
+/* Blocos de tipo de imóvel --------------------------------------------- */
+.tipo-imovel {
+    border: 2px solid var(--cinza);
+    border-radius: 16px;
+    padding: 1.5rem 0.5rem;
+    transition: 0.2s;
+    width: 160px;
+    height: 160px;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.tipo-imovel:hover,
+.tipo-imovel.selected {
+    border-color: var(--verde-borda);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.tipo-imovel img {
+    width: 72px;
+    height: 72px;
+    object-fit: contain;
+}
+
+.tipo-imovel.selected {
+    border-color: var(--verde-borda);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* quando selecionado, força o texto para o nosso azul */
+.tipo-imovel.selected p,
+.tipo-imovel.selected .text-secondary {
+    color: var(--azul) !important;
+}
+
+.input-skinny {
+    max-width: 120px;
+    margin: 0 auto;
+}
+
+.form-control.input-skinny {
+    border-bottom: 2px solid var(--cinza);
+}
+
+.form-control.input-skinny:focus {
+    border-bottom-color: var(--verde);
+}
+
+/* BOTÃO DESABILITADO (mockup) ----------------------------------------- */
+.btn-disabled {
+    background: var(--cinza) !important;
+    color: var(--azul);
+    font-family: 'Exo2', sans-serif;
+    border: none;
+}
+
+.btn-disabled:hover {
+    background: var(--cinza);
+}
+
+/* Ajustes de layout dos steps ----------------------------------------- */
+.unit-input span {
+    margin-left: 4px;
+}
+
+#propertyWrapper .col-6 {
+    display: flex;
+    justify-content: center;
+}
+
+.disabled-step {
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+/* Step cards em geral -------------------------------------------------- */
+.step-card {
+    border: 1px solid var(--cinza);
+    border-radius: 14px;
+    overflow: hidden;
+}
+
+.step-card .accordion-item {
+    border: none !important;
+}
+
+.step-card .accordion-button {
+    border-radius: 14px 14px 0 0;
+}
+
+.step-card .accordion-item:last-of-type .accordion-collapse {
+    border-radius: 0 0 14px 14px;
+}
+
+.intro-indent {
+    margin-left: 58px;
+    text-align: left;
+}
+
+.intro-indent-100 {
+    margin-left: 14px;
+    text-align: left;
+}
+
+/* Mantém workItems e novaArea colados nas bordas */
+#workItems,
+#novaAreaWrap {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+/* Passo 3 – Prazo ------------------------------------------------------ */
+#prazoWrap {
+    margin-left: -0.25rem;
+    margin-right: -0.25rem;
+}
+
+#prazoWrap>.col {
+    padding-left: 0.25rem;
+    padding-right: 0.25rem;
+}
+
+#prazoWrap .option-box {
+    width: 100%;
+}
+
+/* ---------------------------------------------------------------------- */
+/* RESPONSIVO – ajustes específicos para DESKTOP                         */
+/* ---------------------------------------------------------------------- */
+
+
+
+@media (min-width: 992px) {
+
+    /* Badge de desconto sobe para a primeira linha, à direita */
+    #card-preco .price-stack {
+        position: relative;
+        padding-right: 4.25rem;
+        /* espaço para o badge + seta */
+    }
+
+    #card-preco .badge-off {
+        position: absolute;
+        top: 1.90rem;
+        right: 30px;
+    }
+
+    /* Lista de vantagens no topo sem ícone verde na versão “resumo” */
+    .lista-desktop-margem .vant-list li::before {
+        content: none !important;
+        background: none !important;
+    }
+
+    .lista-desktop-margem .vant-list li {
+        padding-left: 0 !important;
+        justify-content: space-between;
+        align-items: baseline;
+    }
+
+    .lista-desktop-margem .vant-list li .text-part {
+        margin-left: 0 !important;
+    }
+
+    .lista-desktop-margem .vant-list li .edit {
+        margin-left: 0.5rem;
+    }
+
+    /* Lista final (carregada do JSON) volta ao fluxo normal */
+    .vant-card .js-vantagens-list li {
+        display: block !important;
+        justify-content: initial !important;
+        gap: 0 !important;
+        padding-left: 22px;
+        position: relative;
+    }
+}
+
+
+
+
+/* ================= CARD DE ORÇAMENTO / PLANOS =================== */
+
+#card-preco {
+  border-radius: 18px;
+}
+
+/* linha verde separando a área de resumo da primeira opção */
+#card-preco .accordion {
+  margin-top: .75rem;
+}
+
+#card-preco .accordion-item {
+  border: 0;
+  border-bottom: 1px solid #e4e7ec;
+}
+
+#card-preco .accordion-item:last-child {
+  border-bottom: none;
+}
+
+/* botão principal do acordeão (header) */
+#card-preco .plan-header-btn {
+  background-color: #ffffff;
+  padding: .75rem 0;
+  box-shadow: none;
+  color: #262942;
+  font-size: .95rem;
+}
+
+/* seta padrão do Bootstrap no fim à direita */
+#card-preco .plan-header-btn::after {
+  flex-shrink: 0;
+  margin-left: .75rem;
+}
+
+/* quando aberto */
+#card-preco .plan-header-btn:not(.collapsed) {
+  background-color: #f7fbff;
+}
+
+/* bloco interno do header */
+#card-preco .plan-header {
+  gap: .75rem;
+}
+
+/* coluna principal (nome + rádio + preços) */
+#card-preco .plan-main {
+  min-width: 0;
+}
+
+/* nome do plano acima do rádio */
+#card-preco .plan-title {
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: .08em;
+  color: var(--azul);
+  text-transform: uppercase;
+  margin-bottom: .15rem;
+}
+
+/* DUO – badge “Recomendado” */
+#card-preco .badge-recomendado {
+  font-size: .65rem;
+  font-weight: 600;
+  padding: .15rem .45rem;
+  border-radius: 5px;
+  background-color: var(--verde);
+  color: var(--azul);
+}
+
+/* bolinha do “rádio” */
+#card-preco .plan-radio {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#card-preco .radio-indicator {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 2px solid #cbd5e1;
+  box-sizing: border-box;
+  background-color: #fff;
+  position: relative;
+}
+
+/* estado selecionado (classe .selected na .plan) */
+#card-preco .plan.selected .radio-indicator {
+  border-color: var(--verde-borda);
+}
+
+#card-preco .plan.selected .radio-indicator::after {
+  content: "";
+  position: absolute;
+  inset: 3px;
+  border-radius: 50%;
+  background-color:var(--verde-borda);
+}
+
+/* bloco texto dos preços */
+#card-preco .plan-price-block {
+  line-height: 1.1;
+}
+
+/* linha “10x de R$ 877,47” */
+#card-preco .install-line {
+  display: flex;
+  align-items: baseline;
+  gap: .25rem;
+}
+
+#card-preco .install-prefix {
+  font-size: .85rem;
+  color: #4b5563;
+}
+
+#card-preco .plan-price {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #262942;
+}
+
+/* linha “De R$ xxx ou à vista R$ yyy” */
+#card-preco .cash-line {
+  margin-top: .1rem;
+  font-size: .78rem;
+  color: #6b7280;
+}
+
+#card-preco .old-price {
+  color: #9ca3af;
+  margin-right: .25rem;
+}
+
+#card-preco .cash-line .cash {
+  font-weight: 700;
+}
+
+/* tarja azul “15% OFF à vista” à direita */
+#card-preco .badge-off {
+  font-size: .7rem;
+  font-weight: 600;
+  padding: .25rem .55rem;
+  border-radius: 5px;
+  border: 1px solid var(--azul);
+  background-color: #94CCFC;
+  color: var(--azul);
+  white-space: nowrap;
+}
+
+/* corpo expandido do acordeão (lista de benefícios) */
+#card-preco .accordion-body {
+  padding-right: 0;
+  padding-bottom: .75rem;
+}
+
+/* plano selecionado com fundo levemente rosa (Duo no load) */
+#card-preco .plan.selected .plan-header-btn {
+  background-color: #fff;
+}
+
+/* evita margens estranhas do flush accordion */
+#card-preco .accordion-flush .accordion-item .accordion-button {
+  border-radius: 0;
+}
+
+
+
+
+/* container do preço antigo */
+.old-price {
+  position: relative;
+  display: inline-block;
+}
+
+/* tira qualquer decoração padrão, se tiver */
+.old-price span {
+  text-decoration: none;
+}
+
+/* linha diagonal */
+.old-price::after {
+  content: "";
+  position: absolute;
+  left: -4%;
+  right: -4%;
+  top: 50%;
+  border-top: 1px solid #262942; /* cor/espessura do risco */
+  transform: rotate(-10deg);      /* bottom-left → top-right */
+  transform-origin: center;
+  pointer-events: none;
+}
+
+
+/* SETAS CUSTOMIZADAS */
+/* seta padrão: FECHADO → arrow-down.svg  */
+#card-preco #planAccordion .accordion-button::after {
+  flex-shrink: 0;
+  margin-left: .5rem;
+  width: 14px;
+  height: 14px;
+  background-image: url('../images/arrow-down.svg');
+  background-repeat: no-repeat;
+  background-size: contain;
+  transform: none;          /* remove o rotate padrão do Bootstrap */
+  filter: none;
+}
+
+/* ABERTO (sem .collapsed) → arrow-up.svg */
+#card-preco #planAccordion .accordion-button:not(.collapsed)::after {
+  background-image: url('../images/arrow-up.svg');
+  transform: none;          /* garante que não gire o SVG */
+}
+
+
+
+
+#card-preco .plan {
+  position: relative;
+}
+
+#card-preco .plan.selected::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 1px solid var(--verde-borda);
+  
+  pointer-events: none;
+  z-index: 9999;
+}
+
+#card-preco .plan.selected {
+  border-bottom-color: transparent;
+}
+
+/* ===== Destaque da opção selecionada (moldura verde completa) ===== */
+
+/* faz o item ocupar toda a largura interna do card,
+   “anulando” o padding lateral do #card-preco (p-4 = 1.5rem) */
+#card-preco .accordion-item.plan {
+  position: relative;
+  margin-left: -1.5rem;   /* invade o padding do card */
+  margin-right: -1.5rem;
+  padding-left: 1.5rem;   /* devolve o respiro interno */
+  padding-right: 1.5rem;
+}
+
+/* borda padrão entre itens continua funcionando */
+#card-preco .accordion-item.plan {
+  border-bottom: 1px solid #e4e7ec;
+}
+
+/* retângulo verde envolvendo header + body do plano selecionado */
+#card-preco .accordion-item.plan.selected::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border: 1px solid var(--verde-borda);
+ 
+  pointer-events: none;     /* não atrapalha clique no accordion */
+}
+
+/* evita que a linha cinza interna apareça dentro da moldura verde */
+#card-preco .accordion-item.plan.selected {
+  border-bottom-color: transparent;
+  z-index: 1; /* garante que a moldura fique sobreposta se tiver sombra */
+}

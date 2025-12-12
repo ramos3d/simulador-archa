@@ -1,0 +1,1050 @@
+/*  ======================================================================
+    MOBILE – Section 1 (banner topo + título + acordeon) – até 575 px
+    ====================================================================== */
+body,
+html {
+  overflow-x: hidden !important;
+}
+
+:root {
+  --verde: #D4FFAD;
+  --verde-borda: #7FDD53;
+  --rosa: #E893C7;
+  --roxo: #DEBDF2;
+  --azul: #262942;
+  --cinza: #D1CCDE;
+}
+
+
+
+/* ─────────────────── 0-A  Banner roxo “Preencha para liberar...” ───── */
+#banner-preenchimento {
+  display: flex;
+  align-items: center;
+  gap: .65rem;
+  background: #D1CCDE;
+  padding: 1.2rem 1rem !important;
+  font: 600 17px 'Exo2', sans-serif;
+  color: var(--azul) !important;
+}
+
+#banner-preenchimento .ico {
+  flex: 0 0 34px;
+  border-radius: 50%;
+  display: grid;
+  place-content: center;
+}
+
+
+
+/* ─────────────────── 0-B  Headline H1 ─────────────────────────────── */
+.hero-h1 {
+  /* “Quanto custa…” */
+  margin: 1.25rem 0 .75rem;
+  font: 700 1.125rem/1.35 'ZillaSlab', serif;
+  color: var(--azul);
+}
+
+/* ─────────────────── 0-C  Step-card (accordion) ajustes mobile ─────── */
+.step-card {
+  border: none;
+  padding: 5px;
+}
+
+/* corpo recolhido: borda + sombra conforme mock-up */
+.step-card .accordion-item {
+  border: 2px solid var(--cinza);
+  overflow: hidden;
+  margin-bottom: 1.25rem;
+  border-radius: revert;
+}
+
+/* Header  (badge + seta)  */
+.step-card .accordion-button {
+  padding: .85rem 1rem;
+}
+
+.step-card .accordion-button::after {
+  margin-left: auto;
+}
+
+
+
+.accordion-button {
+  font-family: 'Exo2', sans-serif;
+  font-weight: 700;
+  color: #262942;
+}
+
+.accordion-button:not(.collapsed) {
+  background-color: #ffffff;
+  color: #262942;
+  box-shadow: none;
+  border-top: 1px solid #7FDD53;
+  z-index: 10;
+}
+
+
+.ml-4 {
+  margin-left: 4%;
+}
+
+/* ─────────────────── 0-D  Badge “1” no header ───────────────────── */
+.step-badge {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--verde);
+  font-family: 'Anek', sans-serif;
+  font-weight: 800;
+  font-size: 20px;
+  padding-top: 1%;
+  color: var(--azul);
+}
+
+/* ─────────────────── 0-E  Botões “Residencial / Comercial / …” ──── */
+
+
+.btn-tipo.active,
+.btn-tipo:hover {
+  background: var(--azul);
+  color: var(--azul);
+  border-color: var(--azul);
+}
+
+/* ─────────────────── 0-F  Cards de tipo de imóvel (full‑width) ───── */
+#propertyWrapper [class*="col-"] {
+  /* força 100 % em XS */
+  flex: 0 0 100%;
+  max-width: 100%;
+}
+
+.tipo-imovel {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  border: 2px solid var(--cinza);
+  border-radius: .75rem;
+  padding: .75rem 1rem;
+  cursor: pointer;
+  transition: border-color .15s ease, background-color .15s ease,
+    box-shadow .15s ease;
+}
+
+
+.tipo-imovel img {
+  width: 58px;
+  margin-right: 5%;
+}
+
+.tipo-imovel p {
+  margin: 0;
+  font: 500 1.1rem/1.2 'Exo2', sans-serif;
+  color: var(--azul);
+  text-align: left;
+}
+
+/* ─────────────────── 0-G  Inputs “ambientes / área” (slim) ───────── */
+.input-skinny {
+  width: 100%;
+  border: none;
+  border-bottom: 2px solid var(--cinza);
+  border-radius: 0;
+  font: 700 1.25rem/1.2 'Exo2', sans-serif;
+  padding: .4rem 0;
+}
+
+.input-skinny:focus {
+  outline: none;
+  box-shadow: none;
+  border-color: var(--azul);
+}
+
+.unit-input {
+  position: relative;
+}
+
+.unit-input span {
+  position: absolute;
+  right: 0;
+  bottom: .5rem;
+  font: 700 .75rem/1 'Exo2', sans-serif;
+  color: var(--cinza-escuro);
+}
+
+/* ─────────────────── 0-H  Botão “Ver preço” ─────────────────────── */
+
+.btn-disabled {
+  background: var(--cinza) !important;
+  color: var(--azul);
+  font-family: 'Exo2', sans-serif;
+  border: none;
+}
+
+.btn-green {
+  background: #1254CC !important;
+  color: #fff !important;
+}
+
+#btnVerPreco {
+  transition: background-color .15s ease;
+}
+
+.accordion {
+  --bs-accordion-border-width: none !important;
+}
+
+
+.btn-tipo {
+  border: 2px solid var(--cinza);
+  border-radius: 10px;
+  font-family: 'ZillaSlab', serif;
+  padding: .4rem 1.1rem;
+  background: #fff;
+  color: var(--azul);
+  transition: .2s;
+
+}
+
+.btn-tipo.active,
+.btn-tipo:hover {
+  background: var(--verde);
+  border-color: var(--verde)
+}
+
+.tipo-imovel:hover,
+.tipo-imovel.selected {
+  border-color: var(--verde-borda);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, .1)
+}
+
+
+
+
+/* ░░ Métricas – refinamentos para o espaçamento ────────────────── */
+.metric-label {
+  flex: 0 1 58%;
+  font-size: .9rem;
+  line-height: 1.25;
+  text-align: left;
+  word-break: break-word;
+}
+
+.metric-input:focus {
+  outline: none;
+  border-bottom-color: var(--verde);
+}
+
+/* linha .row.g-3 já divide em col-6 / col-6            */
+/* basta impedir que o wrapper encolha além desses 50 % */
+.metric-field {
+  flex: 0 0 50%;
+  /* base 50 %  (iguais) */
+  max-width: 50%;
+  /* não passa de 50 %   */
+  position: relative;
+}
+
+.metric-input {
+  border: none;
+  border-bottom: 2px solid var(--cinza);
+  font-weight: 600;
+  height: 28px;
+  width: 200%;
+}
+
+.metric-unit {
+  position: absolute;
+  right: -45px;
+  bottom: 6px;
+  font-size: .875rem;
+  white-space: nowrap;
+  pointer-events: none;
+  color: var(--cinza);
+
+}
+
+
+/**** option box *****************/
+
+.option-box {
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  border: 2px solid transparent;
+  border-radius: 15px !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+  color: #6C757D;
+}
+
+.option-box .radio-indicator {
+  width: 18px;
+  height: 18px;
+  border: 2px solid #ccc;
+  border-radius: 50%;
+  background: #fff;
+  flex: 0 0 18px;
+  display: inline-block;
+}
+
+/* mantém a bolinha verde como antes */
+.option-box.selected .radio-indicator {
+  border-color: #7FDD53;
+  position: relative;
+}
+
+/* círculo branco interno */
+.option-box.selected .radio-indicator::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 6px;
+  height: 6px;
+  background: #fff;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.option-box.selected {
+  border-color: #7FDD53 !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  color: #262942;
+}
+
+.option-box.selected .radio-indicator {
+  background-color: #7FDD53;
+  border-color: #7FDD53;
+}
+
+
+
+.option-box:not(.selected) {
+  border-color: #ccc !important;
+}
+
+/*SECTION 2*/
+/* ---------- cartões de categoria (ESTREANTES / VERIFICADOS / PREFERIDOS) ---- */
+#proCatWrap .option-box {
+  display: flex;
+  align-items: flex-start;
+  gap: .75rem;
+  padding: 1rem 1.25rem;
+  border: 2px solid var(--cinza);
+
+}
+
+#proCatWrap .option-box img {
+  width: 57px;
+  object-fit: contain;
+}
+
+#proCatWrap .opt-title {
+  font-size: .85rem;
+  font-weight: 700;
+  color: #262942;
+  margin: 0 0 2px;
+}
+
+#proCatWrap .opt-text p {
+  font-size: 14px;
+  line-height: 1.3;
+  margin: 0;
+}
+
+#proCatWrap .option-box.selected {
+  border-color: var(--verde-borda);
+  box-shadow: 0 0 0 2px var(--verde-borda) inset;
+  color: #262942;
+  /* título + descrição ganham cor mais escura    */
+}
+
+
+/*********** SECTION 3 ***************/
+/* indicador do checkbox vira quadrado */
+.check-indicator {
+  width: 18px;
+  height: 18px;
+  border: 2px solid #ccc;
+  border-radius: 4px !important;
+  /* quadrado! */
+  flex: 0 0 18px;
+}
+
+/* estado selecionado — cor verde */
+.multi-option.selected .check-indicator {
+
+  border-color: #fff;
+}
+
+/* --- check-indicator com ícone “checked.png” ---------------------- */
+.check-indicator {
+  width: 18px;
+  height: 18px;
+  flex: 0 0 18px;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+}
+
+.check-indicator img {
+  display: none;
+  width: 20px;
+  height: 20px;
+}
+
+.multi-option.selected .check-indicator img {
+  display: block;
+}
+
+/* ---------- footer mobile ---------- */
+#footer-mobile {
+  background: #262942;
+  color: #fff;
+  font-family: 'Exo2', sans-serif
+}
+
+#footer-mobile img {
+  display: block
+}
+
+#footer-mobile a img {
+  transition: opacity .2s
+}
+
+#footer-mobile a:hover img {
+  opacity: .75
+}
+
+.custom-line {
+  width: 97%;
+}
+
+#footer-mobile {
+  /* altura mínima para criar a “faixa” alta */
+  min-height: 300px;
+  /* ajuste até chegar ao visual desejado */
+  padding: 2.5rem 0 2rem;
+  /* espaço interno (topo / base)         */
+
+  /* mantém tudo centralizado na vertical */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* logo, icones e copyright no meio     */
+}
+
+
+/***************** Ver precos */
+.bg-green {
+  background: #7FDD53 !important;
+}
+
+/* utilitários rápidos */
+.bg-purple {
+  background: #A9A0C1;
+}
+
+/* faixa “Preencha ...” */
+
+.text-blue {
+  color: #262942;
+}
+
+/*
+#card-preco {
+  z-index: 1040;
+  font-size: 21px;
+  background: #fff;
+  border-bottom: #6C757D;
+  border-radius: 2px solid #6C757D;
+}
+*/
+/* padrão: fechado, sem raio */
+#card-preco {
+  z-index: 1040;
+  font-size: 21px;
+  background: #fff;
+  border: 0;
+  border-radius: 0;
+}
+
+/* aberto: com borda e raio embaixo */
+#card-preco.is-open {
+  border-bottom: 2px solid #6C757D;
+  /* cor da borda */
+  border-radius: 0 0 20px 20px;
+  /* TL TR BR BL */
+  background-clip: padding-box;
+  /* não “vaza” fundo na borda */
+  overflow: hidden;
+  /* recorta cantos do conteúdo */
+}
+
+
+.fw-400 {
+  font-weight: 400 !important;
+}
+
+.f-14 {
+  font-size: 14px;
+}
+
+.f-18 {
+  font-size: 18px !important;
+}
+
+/* verde “faixa” e verde “caret” já definidos …                      */
+.bg-green {
+  background: #d4ffad !important;
+  color: #262942 !important;
+}
+
+.btn-caret {
+  background: #b0ff75 !important;
+  border: 0;
+}
+
+/*  ⬇  ocupa toda a altura da faixa (sem gaps)                       */
+.btn-caret {
+  width: 18%;
+  /* quadrado fixo                           */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0;
+}
+
+.ico-dollar {
+  flex: 0 0 40px;
+  /* reserva um quadrado, NÃO estica o texto   */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ico-dollar img {
+  width: 32px;
+}
+
+/* seta gira conforme o estado do collapse                           */
+.btn-caret[aria-expanded="true"] img {
+  transform: rotate(180deg);
+}
+
+.btn-caret[aria-expanded="false"] img {
+  transform: none;
+}
+
+.bg-success-subtle {
+  background-color: var(--verde) !important;
+  color: var(--azul) !important;
+  font-weight: 500;
+}
+
+.valor {
+  padding-top: 5% !important;
+  padding-bottom: 5% !important;
+  padding-left: 0% !important;
+  font-size: 18px;
+}
+
+.f-500 {
+  font-weight: 500 !important;
+}
+
+.f-800 {
+  font-weight: 800 !important;
+}
+
+.logo-mobile {
+  height: 19px;
+  margin-bottom: -7%;
+}
+
+.subtitle-mobile {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.btn-outline-grey {
+  padding: 2%;
+  border-radius: 7px;
+  background-color: transparent;
+  border: 2px solid #D1CCDE;
+}
+
+/* Ajusta margens da lista de vantagens extras */
+#vant-card {
+  padding: 0 1rem;
+  margin-bottom: 1rem;
+}
+
+.benef-list {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.benef-list li {
+  font-size: .875rem;
+  color: #262942;
+  padding-left: 24px;
+  position: relative;
+  line-height: 1.4;
+  text-align: left;
+}
+
+.benef-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  /* centraliza verticalmente */
+  transform: translateY(-50%);
+  width: 14px;
+  height: 14px;
+  /*background: url(../images/check-circle-dark.svg) center/contain no-repeat;*/
+  background: url(../images/check-green.svg) center/contain no-repeat;
+}
+
+
+.vant-list.benef-list li::before {
+  content: none;
+}
+
+/* Alinha ícone de lápis apenas na lista de Itens no orçamento */
+#vantItensMobile li {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: .35rem 0;
+}
+
+#vantItensMobile .pencil {
+  flex: 0 0 16px;
+  width: 16px;
+  height: 16px;
+  background: url('../images/pencil.png') center/contain no-repeat;
+  text-decoration: none !important;
+  /* sem underline */
+}
+
+#vantItensMobile a {
+  color: inherit;
+  text-decoration: none
+}
+
+/* texto nunca vira link */
+
+
+/* botão centralizado com espaçamento lateral ------------------------*/
+.btn-avancar {
+  display: block;
+  width: calc(100% - 2rem);
+  /* 1 rem de cada lado */
+  margin: 1.5rem auto 0;
+  background-color: #1254CC;
+  color: #fff;
+  padding: 2%;
+  border-radius: 7px;
+  border: none;
+}
+
+.radio-indicator {
+  width: 14px;
+  height: 14px;
+  flex: 0 0 14px;
+  border: 2px solid #D1CCDE;
+  border-radius: 50%
+}
+
+/* mesmo visual do Passo 2 */
+.plan.selected .accordion-button {
+  background: #FFF;
+  box-shadow: none;
+}
+
+
+.mobile-price-stack {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 2px;
+  line-height: 1.1;
+
+}
+
+.mobile-price-stack .parcelado-line {
+  display: flex;
+  align-items: baseline;
+  gap: .25rem;
+}
+
+.mobile-price-stack .old-price-mobile {
+  font-size: .85rem;
+  line-height: 1;
+  opacity: .8;
+}
+
+.old-price-mobile {
+  color: #8b8b8b;
+  /* pode herdar do tema */
+}
+
+.mobile-price-stack .cash-line {
+  margin-top: 2px;
+}
+
+
+.btn-azul {
+  display: block;
+  width: calc(100% - 2rem) !important;
+  /* 1 rem de cada lado */
+  margin: 1.5rem auto 0;
+  background-color: #1254CC;
+  color: #fff;
+  padding: 2%;
+  border-radius: 7px;
+  border: none;
+}
+
+.btn-azul:hover {
+  color: #fff;
+  background-color: #0e44aa;
+}
+
+
+
+
+/* Estado FECHADO (padrão do Bootstrap adiciona .collapsed) */
+#planAccordion .accordion-button.collapsed .radio-indicator {
+  background: #fff;
+  border-color: #D1CCDE;
+}
+
+/* Estado ABERTO (sem .collapsed) */
+#planAccordion .accordion-button:not(.collapsed) .radio-indicator {
+  background: #7FDD53;
+  border-color: #7FDD53;
+  position: relative;
+}
+
+/* “miolinho” branco quando aberto */
+#planAccordion .accordion-button:not(.collapsed) .radio-indicator::after {
+  content: "";
+  position: absolute;
+  inset: 2px;
+  background: #fff;
+  border-radius: 50%;
+}
+
+/* opcional: animação suave */
+#planAccordion .radio-indicator {
+  transition: background-color .15s ease, border-color .15s ease;
+}
+
+
+
+
+/* ─────────────────── 0-I  Ajustes nas bordas dos cards das questoes ────────────── */
+/* card com borda, raio e sombra básicos */
+.qa-accordion .accordion-item {
+  border: 2px solid var(--cinza);
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, .08);
+  overflow: hidden;
+  /* garante cantos arredondados no conteúdo */
+  margin-bottom: 1.25rem;
+}
+
+/* header padrão, sem linha inferior e sem sombra */
+.qa-accordion .accordion-button {
+  background: #fff;
+  color: var(--azul);
+  box-shadow: none !important;
+  border-bottom: 0 !important;
+  /* sem linha no bottom do header */
+  padding: .85rem 1rem;
+}
+
+/* quando ABERTO: não alterar cor/borda do header */
+.qa-accordion .accordion-button:not(.collapsed) {
+  background: #fff;
+  color: var(--azul);
+  border: 0 !important;
+  /* impede borda verde no header */
+  box-shadow: none !important;
+}
+
+/* seta mantém transição (opcional) */
+.qa-accordion .accordion-button::after {
+  transition: transform .2s ease;
+}
+
+
+.info-ico {
+  border: 0;
+  background: transparent;
+  padding: .25rem;
+  line-height: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+}
+
+.info-ico:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(0, 0, 0, .15);
+}
+
+/* Estado padrão do bullet */
+#planAccordion .plan .radio-indicator {
+  background: #fff;
+  border: 2px solid #D1CCDE;
+  transition: background-color .15s ease, border-color .15s ease;
+}
+
+/* SELECIONADO: independe de estar aberto/fechado */
+#planAccordion .plan.is-selected .radio-indicator {
+  background: #7FDD53;
+  border-color: #7FDD53;
+  position: relative;
+}
+
+#planAccordion .plan.is-selected .radio-indicator::after {
+  content: "";
+  position: absolute;
+  inset: 2px;
+  background: #fff;
+  border-radius: 50%;
+}
+
+
+
+
+
+
+
+/* BLOCO DE PREÇOS – MOBILE, alinhado com o desktop */
+
+#card-preco .plan-header-btn {
+  background-color: #ffffff;
+  padding: .7rem 1rem;
+  box-shadow: none;
+  color: var(--azul);
+  font-size: .9rem;
+}
+
+/* seta do accordion */
+#card-preco .plan-header-btn::after {
+  margin-left: .5rem;
+}
+
+/* wrapper interno */
+#card-preco .plan-header {
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+}
+
+#card-preco .plan-main {
+  min-width: 0;
+  flex-grow: 1;
+}
+
+/* título do plano */
+#card-preco .plan-title {
+  font-size: .9rem;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: #6b7280;
+  margin-bottom: .15rem;
+}
+
+/* badge “Recomendado” do Duo */
+#card-preco .badge-recomendado {
+  font-size: .65rem;
+  font-weight: 600;
+  padding: .15rem .45rem;
+  border-radius: 5px;
+  background-color: var(--verde);
+  color: var(--azul);
+}
+
+/* bloco com as linhas de preço */
+#card-preco .plan-price-block {
+  line-height: 1.1;
+}
+
+/* linha “10x de R$ ...” */
+#card-preco .install-line {
+  display: flex;
+  align-items: baseline;
+  gap: .25rem;
+}
+
+#card-preco .install-prefix {
+  font-size: .8rem;
+  color: #4b5563;
+}
+
+#card-preco .plan-price {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--azul);
+}
+
+/* linha “De R$ ... ou à vista ...” */
+#card-preco .cash-line {
+  margin-top: .1rem;
+  font-size: .72rem;
+  color: #6b7280;
+}
+
+/* preço antigo com risco diagonal */
+#card-preco .old-price {
+  color: #8b8b8b;
+  margin-right: .25rem;
+  position: relative;
+  display: inline-block;
+}
+
+#card-preco .old-price span {
+  text-decoration: none;
+}
+
+#card-preco .old-price::after {
+  content: "";
+  position: absolute;
+  left: -4%;
+  right: -4%;
+  top: 50%;
+  border-top: 1px solid var(--azul);
+  transform: rotate(-10deg);
+  transform-origin: center;
+  pointer-events: none;
+}
+
+/* tarja “15% OFF à vista” à direita */
+#card-preco .badge-off {
+  font-size: .65rem;
+  font-weight: 600;
+  padding: .2rem .5rem;
+  border-radius: 5px;
+  border: 1px solid #2f80ed;
+  background-color: #e6f1ff;
+  color: #1352a3;
+  white-space: nowrap;
+}
+
+/* lista de benefícios alinhada ao texto depois do rádio */
+#card-preco .accordion-body {
+  padding-left: 2.3rem;
+  padding-right: 1rem;
+  padding-bottom: .9rem;
+}
+
+/* ==== Correção do radio-indicator no card de preço (mobile) ===== */
+
+#card-preco .plan-radio {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+}
+
+#card-preco .plan-radio .radio-indicator {
+  display: block;
+  width: 18px;
+  height: 18px;
+  min-width: 18px;
+  min-height: 18px;
+  box-sizing: border-box;
+  border-radius: 50%;
+  border: 2px solid #D1CCDE;
+  background: #fff;
+  flex: 0 0 18px; /* impede de “achatar” pelo flex */
+}
+
+/* estados (mantém o comportamento que você já tinha) */
+#card-preco .plan.is-selected .radio-indicator {
+  background: #7FDD53;
+  border-color: #7FDD53;
+  position: relative;
+}
+
+#card-preco .plan.is-selected .radio-indicator::after {
+  content: "";
+  position: absolute;
+  inset: 3px;
+  border-radius: 50%;
+  background: #fff;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ===== Moldura verde no plano selecionado – MOBILE ===== */
+
+/* cada item de plano ocupa toda a largura útil do card */
+#card-preco #planAccordion .plan {
+  position: relative;
+  margin-left: -1rem;   /* invade o padding lateral do card */
+  margin-right: -1rem;
+  padding-left: 1rem;   /* devolve o respiro interno */
+  padding-right: 1rem;
+  border-bottom: 1px solid #D1CCDE; /* linha separando os itens */
+}
+
+/* retângulo verde envolvendo header + body do plano selecionado */
+#card-preco #planAccordion .plan.selected::before,
+#card-preco #planAccordion .plan.is-selected::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border: 1px solid var(--verde-borda);
+  border-radius: 10px;          /* mesmo “arredondado” do desktop */
+  pointer-events: none;         /* não atrapalha clique */
+}
+
+/* evita linha cinza “dentro” da moldura verde */
+#card-preco #planAccordion .plan.selected,
+#card-preco #planAccordion .plan.is-selected {
+  border-bottom-color: transparent;
+  z-index: 1;
+}

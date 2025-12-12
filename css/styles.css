@@ -1,0 +1,739 @@
+.font-blue {
+  color: #262942;
+}
+
+/*
+button,
+.btn {
+  font-family: 'ZillaSlab', serif;
+}
+*/
+
+.btn-green {
+  background-color: #D4FFAD;
+  color: #262942;
+}
+
+.btn-outline-grey {
+  padding: 2%;
+  border-radius: 7px;
+  background-color: transparent;
+  border: 1px solid #6C757D;
+}
+
+.text-green {
+  color: var(--verde);
+}
+
+.text-rosa {
+  color: var(--rosa);
+}
+
+.text-roxo {
+  color: var(--roxo);
+}
+
+.bg-green {
+  background: #7FDD53 !important;
+}
+
+.btn-green:hover {
+  background-color: #7FDD53;
+}
+
+.border-green {
+  color: #7FDD53;
+}
+
+.input-borders {
+  border: 2px solid #D1CCDE !important;
+
+}
+
+/* Borda verde ao focar */
+input:focus,
+textarea:focus {
+  border: 2px solid #7FDD53;
+  box-shadow: none;
+}
+
+/* Placeholder suave */
+::placeholder {
+  color: #cfcde2 !important;
+  opacity: 0.8;
+}
+
+
+.navbar a:hover {
+  color: #7FDD53;
+}
+
+.navbar .navbar-brand img {
+  height: 28px;
+}
+
+header {
+  background-color: #ffffff;
+}
+
+.card-selected {
+  border: 1px solid #1254CC !important;
+}
+
+.card-option {
+  cursor: pointer;
+  transition: border-color 0.2s ease;
+  border-radius: 12px !important;
+  color: #6C757D;
+}
+
+.card-option.card-selected {
+  border: 2px solid #7FDD53;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  color: #262942;
+}
+
+input.is-invalid {
+  border-bottom: 2px solid red !important;
+}
+
+.option-box {
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  border: 2px solid transparent;
+  border-radius: 15px !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+  color: #6C757D;
+}
+
+.option-box .radio-indicator {
+  width: 18px;
+  height: 18px;
+  border: 2px solid #ccc;
+  border-radius: 50%;
+  background: #fff;
+  flex: 0 0 18px;
+  display: inline-block;
+}
+
+/* mantém a bolinha verde como antes */
+.option-box.selected .radio-indicator {
+  border-color: #7FDD53;
+  position: relative;
+}
+
+/* círculo branco interno */
+.option-box.selected .radio-indicator::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 6px;
+  height: 6px;
+  background: #fff;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.option-box.selected {
+  border-color: #7FDD53 !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  color: #262942;
+}
+
+.option-box.selected .radio-indicator {
+  background-color: #7FDD53;
+  border-color: #7FDD53;
+}
+
+/* força estilo de opção NÃO selecionada */
+.option-box:not(.selected) .radio-indicator {
+  background: #fff !important;
+  border-color: #ccc !important;
+}
+
+.option-box:not(.selected) {
+  border-color: #ccc !important;
+}
+
+
+/*etapa 4*/
+
+.space-option {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 160px;
+  border-radius: 18px;
+}
+
+.space-option.selected {
+  border-color: #1254CC !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  color: #262942;
+}
+
+.multi-option {
+  cursor: pointer;
+  transition: border-color .2s, box-shadow .2s;
+  border: 2px solid transparent;
+  border-radius: 16px;
+}
+
+.multi-option.selected {
+  border-color: #1254CC !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+input.form-control {
+  border: none;
+  border-radius: 0;
+  font-family: 'Exo2', sans-serif;
+  background: transparent;
+  box-shadow: none;
+}
+
+input.form-control:focus {
+  border-color: #7FDD53 !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.text-secondary {
+  color: #6C757D !important;
+}
+
+.text-secondary-soft {
+  color: #D1CCDE;
+}
+
+.tipo-card {
+  flex: 0 0 18%;
+  /*max-width: 20%;*/
+  color: #6C757D !important;
+}
+
+.tipo-card:hover {
+  cursor: pointer;
+}
+
+.height-card {
+  height: 85px;
+}
+
+.size-lg {
+  font-size: 22px !important;
+}
+
+.money-wrapper input {
+  border: none;
+  border-bottom: 2px solid #ccc;
+  border-radius: 0;
+  padding-top: .55rem;
+  padding-bottom: .55rem;
+  /* texto alinhado à esquerda */
+  text-align: left;
+  background: transparent;
+  box-shadow: none;
+}
+
+.money-wrapper input:focus {
+  border-bottom-color: #7FDD53 !important;
+  outline: none;
+  box-shadow: none;
+}
+
+.font-exo {
+  font-family: 'Exo2', sans-serif;
+}
+
+.money-prefix {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  /* evita clicar no span */
+  font-family: 'Exo2', sans-serif;
+}
+
+/* garante que a linha de fundo passe por baixo do prefixo */
+.money-wrapper::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 2px;
+  background: #ccc;
+}
+
+.money-wrapper:focus-within::after {
+  background: #7FDD53;
+}
+
+/* CHROME / EDGE ─ elimina o fundo azul do autofill */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-internal-autofill-selected {
+  /* 👈 aparece enquanto a bolha “Undo autofill” está visível */
+  -webkit-box-shadow: 0 0 0 1000px transparent inset !important;
+  /* “pinta” o fundo de transparente */
+  box-shadow: 0 0 0 1000px transparent inset !important;
+  -webkit-text-fill-color: inherit !important;
+  /* mantém a cor original do texto */
+  transition: background-color 9999s ease-in-out 0s;
+  /* impede que volte a colorir */
+}
+
+.text-wine {
+  color: #8F175C;
+}
+
+.bg-purple {
+  background-color: #DEBDF2;
+}
+
+.lil {
+  font-size: 14px;
+}
+
+
+/***********************/
+
+/* --- Seção 3 ---------------------------------------------------- */
+
+/* layout dos cards multi-opção */
+.multi-option {
+  display: flex;
+  /* ícone + texto na mesma linha */
+  align-items: center;
+  gap: .75rem;
+}
+
+/* ícone sempre centralizado verticalmente */
+.multi-option img {
+  height: 42px;
+  width: auto;
+}
+
+/* indicador do checkbox vira quadrado */
+.check-indicator {
+  width: 18px;
+  height: 18px;
+  border: 2px solid #ccc;
+  border-radius: 4px !important;
+  /* quadrado! */
+  flex: 0 0 18px;
+}
+
+/* estado selecionado — cor verde */
+.multi-option.selected .check-indicator {
+
+  border-color: #fff;
+}
+
+.multi-option.selected {
+  border-color: #7FDD53 !important;
+  box-shadow: 0 0 0 2px rgba(127, 221, 83, .35);
+  color: #262942;
+}
+
+/* cards de prazo em linha (ícone + texto) */
+.prazo-box {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  gap: .5rem;
+}
+
+/*************************/
+/* --- check-indicator com ícone “checked.png” ---------------------- */
+.check-indicator {
+  width: 18px;
+  height: 18px;
+  flex: 0 0 18px;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+}
+
+.check-indicator img {
+  display: none;
+  width: 20px;
+  height: 20px;
+}
+
+.multi-option.selected .check-indicator img {
+  display: block;
+}
+
+/* --- radio-indicator quadrado p/ prazo --------------------------- */
+.radio-indicator {
+  width: 18px;
+  height: 18px;
+  border: 2px solid #ccc;
+  border-radius: 50%;
+  display: inline-block;
+  background: #fff;
+  flex: 0 0 18px;
+}
+
+.prazo-box.selected .radio-indicator {
+  background: #7FDD53;
+  border-color: #7FDD53;
+}
+
+.prazo-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: .5rem;
+  width: 195px;
+}
+
+h2 {
+  font-size: 22px !important;
+}
+
+p,
+label,
+.badge {
+  font-family: 'Exo2', sans-serif;
+}
+
+.badge {
+  font-size: 12px;
+}
+
+.bg-success-subtle {
+  background-color: var(--verde) !important;
+  color: var(--azul) !important;
+  font-weight: 500;
+}
+
+.title-badge-card {
+  background-color: var(--azul);
+  padding: 1.2rem 2rem;
+  /* altura menor, espaçamento nas laterais */
+  border-radius: 12px;
+  /* cantos arredondados uniformes */
+  display: inline-flex;
+  /* só envolve o texto */
+  width: 100%;
+  /* ocupa toda a largura disponível */
+  align-items: center;
+}
+
+.title-badge-card h1 {
+  font-size: 1.8rem;
+  /* ajuste proporcional */
+  margin: 0;
+  /* remove espaço extra */
+  color: var(--verde);
+  /* mantém o contraste */
+}
+
+/* pinta o “bullet” */
+.plan.selected .radio-indicator {
+  border: 0.24rem solid #7FDD53;
+}
+
+.promo-header {
+  background: linear-gradient(90deg, #45A319 0%, #7FDD53 100%);
+  color: #fff;
+  text-align: center;
+  font-weight: 600;
+
+  padding: 10px 12px;
+  border-radius: 6px 6px 0 0;
+  margin: -25px -25px 1rem -25px;
+  /* ocupa toda a largura do card */
+  font-family: 'Open Sans';
+}
+
+.promo-header {
+  background: linear-gradient(90deg, #45A319 0%, #7FDD53 100%);
+  color: #fff;
+  text-align: center;
+  font-weight: 600;
+
+  padding: 10px 12px;
+  border-radius: 6px 6px 0 0;
+  margin: -25px -25px 1rem -25px;
+  /* ocupa toda a largura do card */
+  font-family: 'Open Sans';
+}
+
+.promo-header-blackfriday {
+  background: #000;
+  color: #fff;
+  text-align: center;
+
+
+  padding: 10px 12px;
+  border-radius: 6px 6px 0 0;
+  margin: -25px -25px 1rem -25px;
+
+}
+
+.promo-text {
+  color: #fff;
+}
+
+.style-title {
+  font-size: 22px;
+}
+
+.paragrafo {
+  font-size: 16px !important;
+  color: var(--azul) !important;
+}
+
+.f-24 {
+  font-size: 24px !important;
+}
+
+.f-22 {
+  font-size: 22px !important;
+}
+
+#fone::placeholder,
+#nome::placeholder,
+#email::placeholder {
+  color: #6C757D !important;
+}
+
+
+/* 20px entre o bloco de botões e os cards */
+.cat-buttons {
+  margin-bottom: 20px !important;
+}
+
+/* 20px acima dos cards (garantia) e 30px abaixo dos cards até a pergunta seguinte */
+.tipo-section {
+  margin-top: 20px;
+  /* acima */
+  margin-bottom: 30px;
+  /* abaixo */
+}
+
+
+/* Evita espaçamentos extras internos que possam somar: mantenha os cards "secos" */
+.tipo-imovel {
+  margin: 0;
+  font-size: 13px !important;
+  font-weight: 500 !important;
+}
+
+
+
+/* Desktop: gutter-x negativo responsivo (entre -80px e -150px) */
+@media (min-width: 992px) {
+  .tipo-grid {
+    --bs-gutter-x: clamp(-150px, 0vw, -80px);
+    --bs-gutter-y: 15px;
+    /* mantém o vertical */
+  }
+}
+
+/* Mobile/tablet: mantém o padrão atual */
+@media (max-width: 991.98px) {
+  .tipo-grid {
+    --bs-gutter-x: -150px;
+    --bs-gutter-y: 15px;
+  }
+}
+
+/* mantém verde quando preenchido e válido */
+input.form-control.is-filled:not(.is-invalid) {
+  border-color: #7FDD53 !important;
+  box-shadow: none !important;
+}
+
+/* nos inputs “fininhos” (underline) */
+.input-skinny.is-filled:not(.is-invalid) {
+  border-bottom: 2px solid #7FDD53 !important;
+}
+
+/* opcional: garante que o popover fique por cima de tudo do card */
+.popover {
+  z-index: 2000;
+}
+
+.help-icon {
+  cursor: pointer;
+}
+
+
+/* padrão: telas até 1399px → -6% */
+.icones-header {
+  margin-right: -6%;
+}
+
+/* telas ≥ 1400px → -1% */
+@media (min-width: 1400px) {
+  .icones-header {
+    margin-right: -1%;
+  }
+}
+
+
+/* --- Estilos específicos de lista de itens do orçamento  ---------------------------- */
+
+/* Lista de itens do orçamento: texto à esquerda + ícone de edição à direita */
+.vant-list li {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: .5rem;
+  padding: .15rem 0;
+}
+
+.vant-list li .text-part {
+  flex: 1 1 auto;
+  /* ocupa a linha, mantém à esquerda */
+}
+
+/* link do ícone à direita */
+.vant-list li .edit {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  opacity: .7;
+  text-decoration: none;
+}
+
+.vant-list li .edit:hover {
+  opacity: 1;
+}
+
+.vant-list li .edit img {
+  width: 16px;
+  height: 16px;
+  display: block;
+}
+
+.itens-margem-b {
+  margin-bottom: -7px;
+}
+
+/* GERAL -------------------------- */
+.f-10 {
+  font-size: 10px !important;
+}
+
+.f-14 {
+  font-size: 14px !important;
+}
+
+/* cor padrão */
+.plano-label {
+  font-weight: 500;
+  color: #6C757D;
+}
+
+.plan.selected .plano-label {
+  color: #262942;
+}
+
+
+.btn-azul {
+  display: block;
+
+  /* 1 rem de cada lado */
+  margin: 1.5rem auto 0;
+  background-color: #1254CC;
+  color: #fff;
+  padding: 1%;
+  border-radius: 7px;
+  border: none;
+}
+
+.btn-azul:hover {
+  color: #fff;
+  background-color: #0e44aa;
+}
+
+.btnIrParaPagamento {
+  padding: 3%;
+}
+
+
+/* Desliga o highlight de foco no accordion de planos */
+#planAccordion {
+  --bs-accordion-btn-focus-box-shadow: none;
+}
+
+#planAccordion .accordion-button:focus,
+#planAccordion .accordion-button:focus-visible {
+  outline: none;
+  /* remove outline nativo */
+  box-shadow: none;
+  /* garante sem sombra */
+  border-color: inherit;
+  /* evita borda azulada ao focar */
+}
+
+.sec1-mt-sml-14 {
+  margin-top: -14px;
+}
+
+.sec2-mt-sml-23 {
+  margin-top: -23px;
+}
+
+.sec3-mt-sml-22 {
+  margin-top: -22px;
+}
+
+
+.btnCustomizado {
+  width: 105% !important;
+  margin-left: -9px !important;
+}
+
+
+/* Não selecionado → cinza */
+#planAccordion .plan:not(.selected) :is(.price-stack, .mobile-price-stack) [id^="price"] {
+  color: #6C757D !important;
+}
+
+/* Selecionado → cor padrão do tema */
+#planAccordion .plan.selected :is(.price-stack, .mobile-price-stack) [id^="price"] {
+  color: inherit;
+  /* ou defina #262942, se preferir fixo */
+}
+
+.m-short-6 {
+  margin-left: -6px;
+}
+
+.f-w-400 {
+  font-weight: 400 !important;
+}
+
+/* Estado "com preço" do botão Ver preço */
+#btnVerPreco.btn-ver-preco-active {
+  background-color: #ffffff !important;
+  border: 1px solid #6C757D;
+
+}
+
+/* Estado "com preço" do botão Ver preço */
+#btnVerPreco.btn-ver-preco-active,
+#btnVerPreco.btn-ver-preco-active span,
+#btnVerPreco.btn-ver-preco-active span strong {
+  color: #262942 !important;
+}
+
+.none:hover {
+  background-color: transparent !important;
+  color: #262942 !important;
+}

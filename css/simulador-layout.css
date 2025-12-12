@@ -1,0 +1,320 @@
+/* 1. Remove limites de largura que estavam fixos em etapas específicas */
+#accordionForm .step {
+  max-width: 100% !important;
+  width: 100% !important;
+}
+
+/* Neutraliza regras antigas */
+#step-2,
+#step-4,
+#step-8,
+#step-9 {
+  max-width: none !important;
+  width: 100% !important;
+}
+
+/* 2. Acordeon */
+/* Adiciona borda e raio suave para aproximar do mockup de referência */
+.accordion-item {
+  border: 1px solid #ffffff;
+  border-radius: 14px;
+}
+
+.accordion-button {
+  font-family: 'Exo2', sans-serif;
+  font-weight: 700;
+  color: #262942;
+}
+
+.accordion-button:not(.collapsed) {
+  background-color: #ffffff;
+  color: #262942;
+  box-shadow: none;
+}
+
+/* 3. Largura máxima mais confortável no desktop grande */
+@media (min-width: 1400px) {
+  #form-inteligente-simulador .col-xl-9 {
+    flex: 0 0 72%;
+    max-width: 72%;
+  }
+}
+
+/* 4. Card lateral fixo */
+#card-preco {
+  border-radius: 14px;
+}
+
+#card-preco h5 {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: #262942;
+}
+
+.question-title {
+  font-size: 20px;
+}
+
+.none {
+  text-decoration: none !important;
+}
+
+/*CONTRATO*/
+
+#processingOverlay {
+  position: fixed;
+  inset: 0;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font: 600 1.25rem/1.2 "Exo", sans-serif;
+  color: #343a40;
+  z-index: 20000;
+}
+
+#processingOverlay::after {
+  content: "";
+  width: 1rem;
+  height: 1rem;
+  margin-left: .5rem;
+  border-radius: 50%;
+  border: .25rem solid #E893C7;
+  border-right-color: transparent;
+  animation: spin .8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(1turn)
+  }
+}
+
+/* ================== CARD / CABEÇALHO ================== */
+#card-preco .accordion-button {
+  position: relative;
+  display: flex;
+  align-items: center;
+  /* Solo e “10x de …” na mesma altura */
+  gap: .5rem;
+  background: transparent;
+  /* sem fundo branco */
+}
+
+/* bloco de preços empilhado à direita (1ª linha = 10x, 2ª = “ou …”) */
+#card-preco .accordion-button .price-stack {
+  margin-left: auto;
+  /* empurra pra direita */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  /* texto alinhado à direita */
+  justify-content: center;
+  /* alinha verticalmente com “Solo” */
+  line-height: 1.05;
+  gap: .2rem;
+}
+
+#card-preco .accordion-button .installments {
+  display: inline-flex;
+  align-items: center;
+  gap: .35rem;
+  font-weight: 700;
+}
+
+#card-preco .accordion-button .price-label {
+  font-weight: 700;
+}
+
+#card-preco .accordion-button .cash-line {
+  display: inline-flex;
+  align-items: center;
+  gap: .35rem;
+  font-weight: 600;
+  opacity: .9;
+}
+
+/* mantém visível em hover/focus/aberto (herda a cor do tema) */
+#card-preco .accordion-button:hover .price-stack,
+#card-preco .accordion-button:focus .price-stack,
+#card-preco .accordion-button:not(.collapsed) .price-stack {
+  color: inherit;
+}
+
+/* badge “15% OFF” */
+.badge-off {
+  background: var(--azul-claro);
+  color: var(--azul);
+  border: 1px solid var(--azul);
+  font-size: .75rem;
+  padding: .1rem .4rem;
+  border-radius: .4rem;
+  white-space: nowrap;
+  font-weight: 700;
+}
+
+/* ================== TARJA PRETA (ribbon) ================== */
+.plan {
+  position: relative;
+}
+
+.plan .plan-ribbon {
+  display: inline-flex;
+  align-items: center;
+  background: #1D1B20;
+  color: #fff;
+
+  /* arredonda só a direita, colada à borda esquerda do bloco */
+  border-radius: 0 .75rem .75rem 0;
+
+  /* fonte Exo 2 – 14px – bold */
+  font-family: "Exo 2", var(--bs-font-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial);
+  font-weight: 700;
+  font-size: .875rem;
+  padding: .55rem .9rem .55rem calc(var(--bs-accordion-body-padding-x, 1.25rem) + .2rem);
+}
+
+
+.price-label {
+  margin-bottom: -7px;
+
+}
+
+.body-cash-line {
+  /*margin-top: -6px;*/
+  font-size: 12px;
+}
+
+/* garante o mesmo padding-x para a conta da tarja acima */
+.label-solo {
+  margin-left: -168px;
+  margin-bottom: 1.25rem;
+}
+
+.label-duo {
+  margin-left: -134px;
+  margin-bottom: 1.25rem;
+}
+
+.label-trio {
+  margin-left: -150px;
+  margin-bottom: 1.25rem;
+  max-width: 240px;
+}
+
+/* ================== AJUSTES RESPONSIVOS ================== */
+@media (max-width: 380px) {
+  #card-preco .accordion-button .price-stack {
+    gap: .15rem;
+  }
+
+  #card-preco .accordion-button .cash-line {
+    font-size: .9rem;
+  }
+}
+
+
+
+:root{ --stickyTop: 88px; }
+
+/* Pilha sticky da lateral */
+#aside-stick{
+  position: sticky;
+  top: 7px;  /* var(--stickyTop);*/
+}
+
+/* Card grudado no topo da pilha */
+#card-preco{
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  border-radius: 14px;
+  background:#fff; /* segurança */
+}
+
+/* Espaçador = altura do card (setado via JS) */
+.card-spacer{ height: var(--cardH, 0px); }
+
+/* Lista em fluxo normal (nada de sticky) */
+.vant-card{
+  position: relative !important;
+  top: auto !important;
+  z-index: 1;
+  padding: 0 1.5rem;
+  width: var(--cardW, 340px);
+}
+
+/* Evita parent quebrar sticky */
+aside.col-lg-5.col-xl-4,
+aside.col-lg-4.col-xl-3{
+  position: relative;
+  overflow: visible;
+}
+
+/* 🔑 Soltar apenas o CARD (nunca a pilha inteira) */
+.release-card #card-preco{
+  position: static !important;
+}
+
+/* Quando o card soltar, não deixe "buraco" entre card e lista */
+.release-card .card-spacer{
+  height: 0 !important;
+}
+
+
+
+/* Campo em cima, feedback embaixo, empurrando layout */
+.unit-input{
+  display: grid;
+  grid-template-rows: auto auto;
+  row-gap: .35rem;
+
+  /* centraliza o bloco todo na coluna */
+  justify-content: center;   /* centra o grid no espaço disponível */
+  justify-items: center;     /* centra itens (field e feedback) */
+}
+
+/* Input + m² lado a lado, coladinhos */
+.unit-input .field{
+  display: inline-flex;
+  align-items: baseline;
+  gap: .35rem;
+  width: auto;               /* não estica */
+}
+
+/* Input não ocupa 100% */
+.unit-input .field .form-control{
+  flex: 0 0 auto;
+  width: auto !important;
+  min-width: 6ch;            /* ajuste fino opcional */
+  padding-right: .5rem;
+}
+
+/* “m²” como irmão, sem posição absoluta */
+.unit-input .field .unit{
+  position: static;
+  line-height: 1;
+  opacity: .7;
+  pointer-events: none;
+}
+
+/* Mensagem centralizada e só aparece quando inválido */
+.unit-input .invalid-feedback{
+  display: none;
+  text-align: center;
+}
+.unit-input:has(.form-control.is-invalid) .invalid-feedback{
+  display: block;
+}
+
+/* Fallback se o navegador não suportar :has() */
+@supports not(selector(:has(*))){
+  .unit-input.show-invalid .invalid-feedback{ display:block; }
+}
+
+
+
+
+.unit-input .field .form-control:focus{
+  box-shadow: none;
+}

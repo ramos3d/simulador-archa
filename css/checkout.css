@@ -1,0 +1,55 @@
+ * {
+     box-sizing: border-box;
+ }
+
+ html,
+ body {
+     height: 100%;
+ }
+
+ #pix-section {
+     flex: 1 1 100%;
+     width: 100%;
+ }
+
+ #pix-qr-container {
+     display: flex;
+     justify-content: center;
+ }
+
+
+ /* Caixa do ícone na revisão do projeto */
+.ck-resume-icon {
+  width: 71px !important;
+  height: 71px !important;
+  border: 1px solid #7bd550 !important;
+  border-radius: 7px !important;
+  background-color: #ffffff;
+  box-sizing: border-box;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Ícone dentro da caixinha */
+.ck-resume-icon img {
+  display: block;
+  max-width: 60%;
+  max-height: 60%;
+  object-fit: contain;
+}
+
+.none:hover {
+  background-color: transparent !important;
+  color: #262942 !important;
+}
+@media (min-width: 1400px) {
+    .container, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
+        max-width: 1468px;
+    }
+}
+
+.mt-custom{
+  margin-top: 8px;
+}
