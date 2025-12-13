@@ -2,13 +2,6 @@
   color: #262942;
 }
 
-/*
-button,
-.btn {
-  font-family: 'ZillaSlab', serif;
-}
-*/
-
 .btn-green {
   background-color: #D4FFAD;
   color: #262942;
@@ -62,7 +55,6 @@ textarea:focus {
   color: #cfcde2 !important;
   opacity: 0.8;
 }
-
 
 .navbar a:hover {
   color: #7FDD53;
@@ -582,7 +574,6 @@ input.form-control.is-filled:not(.is-invalid) {
     margin-right: -1%;
   }
 }
-
 
 /* --- Estilos específicos de lista de itens do orçamento  ---------------------------- */
 
