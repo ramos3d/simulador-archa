@@ -8,19 +8,27 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Upload to dev.archa.com.br via FTPS
+      - name: Upload via FTPS (incremental)
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
           server: archa.com.br
-          username: devarcha@dev.archa.com.br
+          username: devarcha@archa.com.br
           password: ${{ secrets.FTP_PASS }}
           port: 21
           protocol: ftps
           security: loose
           local-dir: ./
           server-dir: /
+          exclude: |
+            **/.git/**
+            **/.github/**
+            **/node_modules/**
+            **/.vscode/**
+            **/.idea/**
+            **/storage/**
+            **/vendor/**
+            **/*.log
