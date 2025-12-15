@@ -2,15 +2,13 @@ name: Deploy DEV (FTPS)
 
 on:
   push:
-    branches:
-      - dev
+    branches: [dev]
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
       - name: Upload via FTPS (incremental)
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
@@ -24,12 +22,22 @@ jobs:
 
           local-dir: ./
           server-dir: ./
-         
-          state-name: ftp-deploy-sync-state.json    
-          timeout: 120000
+
+          state-name: ftp-deploy-sync-state.json
+
+          # mais folga para FTP “nervoso”
+          timeout: 600000
+          log-level: standard
 
           exclude: |
             **/.git*
             **/.git*/**
             **/.github/**
-
+            **/node_modules/**
+            **/.vscode/**
+            **/.idea/**
+            **/*.log
+            # opcionais para reduzir peso:
+            # **/images/**
+            # **/fonts/**
+            # **/Documentation/**
