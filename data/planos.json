@@ -1,0 +1,35 @@
+{
+    "FLEX": [
+        "Você define o investimento",
+        "Compare portfólios e escolha um profissional",
+        "Um profissional dedicado ao seu projeto",
+        "Escritórios cadastrados",
+        "Plano disponível para espaços de até 120m²"
+    ],
+    "DUO": [
+        "Filtramos os escritórios ideais para o seu projeto",
+        "Dois profissionais dedicados ao seu projeto",
+        "Compare dois projetos e escolha o ideal para o seu espaço",
+        "Escritórios treinados e verificados",
+        "Imagens 3D dos ambientes",
+        "Apresentação do projeto por meio de um vídeo de até 5 minutos",
+        "PDF com o estudo de layout com medidas e moodboard",
+        "1 revisão do projeto escolhido",
+        "Estimativa de custo da obra",
+        "Lista de especificação de acabamentos e produtos",
+        "Orientação e suporte em toda jornada"
+    ],
+    "TRIO": [
+        "Filtramos os escritórios ideais para o seu projeto",
+        "Três profissionais dedicados ao seu projeto",
+        "Compare três projetos e escolha o ideal para o seu espaço",
+        "Escritórios treinados, qualificados e vencedores de concorrências anteriores",
+        "Imagens 3D dos ambientes",
+        "Apresentação do projeto por meio de um vídeo de até 5 minutos",
+        "PDF com o estudo de layout com medidas e moodboard",
+        "1 revisão do projeto escolhido",
+        "Estimativa de custo da obra",
+        "Lista de especificação de acabamentos e produtos",
+        "Orientação e suporte em toda jornada"
+    ]
+}
