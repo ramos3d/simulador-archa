@@ -1,35 +1,23 @@
-name: Deploy DEV (FTPS)
+name: Deploy DEV (SSH)
 
 on:
   push:
-    branches:
-      - dev
+    branches: [ dev ]
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    timeout-minutes: 20
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: Upload via FTPS (incremental)
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+      - name: Sync files via SSH (rsync)
+        uses: SamKirkland/web-deploy@v1
         with:
-          server: archa.com.br
-          username: devarcha@dev.archa.com.br
-          password: ${{ secrets.FTP_PASS }}
-          port: 21
-          protocol: ftps
-          security: loose
-
-          local-dir: ./
-          server-dir: ./
-         
-          state-name: ftp-deploy-sync-state.json    
-          timeout: 120000
-
-          exclude: |
-            **/.git*
-            **/.git*/**
-            **/.github/**
+          target-server: archa.com.br
+          remote-user: SSH_USER
+          private-ssh-key: ${{ secrets.SSH_KEY }}
+          ssh-port: 22
+          source-path: ./
+          destination-path: /home/studi0976/dev.archa.com.br/
 
