@@ -42,6 +42,8 @@
   <script src="js/inputs.js?v=<?= filemtime('js/inputs.js'); ?>"></script>
   <script src="js/checkout-review.js?v=<?= filemtime('js/checkout-review.js'); ?>"></script>
   <!--<script src="js/checkout-pix.js?v=<?= filemtime('js/checkout-pix.js') ?>" defer></script>-->
+  <script src="js/lead-endereco-update.js?v=<?= filemtime('js/lead-endereco-update.js'); ?>"></script>
+
 </footer>
 </body>
 
