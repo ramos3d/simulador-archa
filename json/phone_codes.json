@@ -1,0 +1,31 @@
+{
+  "AMERICAS": {
+    "AR": { "country": "Argentina", "code": 54 },
+    "BO": { "country": "Bolivia", "code": 591 },
+    "BR": { "country": "Brazil", "code": 55 },
+    "CA": { "country": "Canada", "code": 1 },
+    "CL": { "country": "Chile", "code": 56 },
+    "CO": { "country": "Colombia", "code": 57 },
+    "CR": { "country": "Costa Rica", "code": 506 },
+    "CU": { "country": "Cuba", "code": 53 },
+    "DO": { "country": "Dominican Republic", "code": 1 },
+    "EC": { "country": "Ecuador", "code": 593 },
+    "GT": { "country": "Guatemala", "code": 502 },
+    "HN": { "country": "Honduras", "code": 504 },
+    "JM": { "country": "Jamaica", "code": 1 },
+    "MX": { "country": "Mexico", "code": 52 },
+    "NI": { "country": "Nicaragua", "code": 505 },
+    "PA": { "country": "Panama", "code": 507 },
+    "PE": { "country": "Peru", "code": 51 },
+    "PR": { "country": "Puerto Rico", "code": 1 },
+    "PY": { "country": "Paraguay", "code": 595 },
+    "SV": { "country": "El Salvador", "code": 503 },
+    "UY": { "country": "Uruguay", "code": 598 },
+    "US": { "country": "United States", "code": 1 },
+    "VE": { "country": "Venezuela", "code": 58 }
+  },
+  "EUROPE": {
+    "PT": { "country": "Portugal", "code": 351 },
+    "FR": { "country": "France", "code": 33 }
+  }
+}
