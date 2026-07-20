@@ -14,10 +14,10 @@ jobs:
       - name: Sync files via SSH (rsync)
         uses: SamKirkland/web-deploy@v1
         with:
-          target-server: archa.com.br
-          remote-user: SSH_USER
+          target-server: ${{ secrets.SSH_HOST }}
+          remote-user: ${{ secrets.SSH_USER }}
           private-ssh-key: ${{ secrets.SSH_KEY }}
-          ssh-port: 22
+          ssh-port: ${{ secrets.SSH_PORT }}
           source-path: ./
           destination-path: /home/studi0976/dev.archa.com.br/
 
