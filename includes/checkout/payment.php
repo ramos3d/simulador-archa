@@ -1,7 +1,7 @@
 <?php /** Pagamento da entrada (25%) — único fluxo */ ?>
 <div class="ck-card mb-4">
   <div class="ck-head py-2 px-3">
-    <h6 class="ck-title mb-0">Como pagar a entrada (25%)</h6>
+    <h6 class="ck-title mb-0"><?= t('Como pagar a entrada (25%)') ?></h6>
   </div>
   <div class="ck-body p-3">
 
@@ -11,8 +11,8 @@
     <!-- Métodos: Cartão (primeiro) | PIX -->
     <div class="entrada-metodo mb-3">
       <button type="button" class="pay-btn active" id="btnEntradaCard" data-forma="cartao">
-        <img src="<?= ASSETS_BASE ?>/images/icon-card.png" alt="Cartão">
-        <span class="f-exo">Cartão</span>
+        <img src="<?= ASSETS_BASE ?>/images/icon-card.png" alt="<?= t('Cartão') ?>">
+        <span class="f-exo"><?= t('Cartão') ?></span>
       </button>
       <button type="button" class="pay-btn" id="btnEntradaPix" data-forma="pix">
         <img src="<?= ASSETS_BASE ?>/images/icon-pix.png" alt="PIX">
@@ -23,7 +23,7 @@
     <!-- Cartão (padrão, visível) -->
     <div id="boxEntradaCard">
       <div class="mb-3">
-        <label class="form-label f-anek mb-1" style="font-size:.85rem">Parcele a entrada em</label>
+        <label class="form-label f-anek mb-1" style="font-size:.85rem"><?= t('Parcele a entrada em') ?></label>
         <div class="parcelas-entrada-selector">
           <?php foreach (range(2, 10) as $n): ?>
           <button type="button" class="parcela-btn <?= $n === 2 ? 'active' : '' ?>"
@@ -38,15 +38,15 @@
       <!-- Campos do cartão -->
       <div class="row g-2 mb-2">
         <div class="col-12">
-          <label for="entradaCardName" class="form-label f-anek mb-1">Nome impresso no cartão</label>
-          <input id="entradaCardName" type="text" class="form-control f-exo" placeholder="Como está no cartão" autocomplete="cc-name">
+          <label for="entradaCardName" class="form-label f-anek mb-1"><?= t('Nome impresso no cartão') ?></label>
+          <input id="entradaCardName" type="text" class="form-control f-exo" placeholder="<?= t('Como está no cartão') ?>" autocomplete="cc-name">
         </div>
         <div class="col-12">
-          <label for="entradaCardNumber" class="form-label f-anek mb-1">Número do cartão</label>
+          <label for="entradaCardNumber" class="form-label f-anek mb-1"><?= t('Número do cartão') ?></label>
           <input id="entradaCardNumber" type="text" class="form-control f-exo" inputmode="numeric" autocomplete="cc-number" placeholder="0000 0000 0000 0000">
         </div>
         <div class="col-6">
-          <label for="entradaCardExpiry" class="form-label f-anek mb-1">Validade</label>
+          <label for="entradaCardExpiry" class="form-label f-anek mb-1"><?= t('Validade') ?></label>
           <input id="entradaCardExpiry" type="text" class="form-control f-exo" inputmode="numeric" placeholder="MM/AAAA" maxlength="7">
         </div>
         <div class="col-6">
@@ -61,12 +61,12 @@
       <div id="entrada-pix-section" class="text-center mt-2">
         <div id="entrada-pix-qr" class="my-3">
           <div class="pix-loading text-muted small py-3">
-            <div class="spinner-border spinner-border-sm me-2"></div>Gerando QR Code...
+            <div class="spinner-border spinner-border-sm me-2"></div><?= t('Gerando QR Code...') ?>
           </div>
         </div>
         <div id="entrada-pix-payload" class="text-muted small font-monospace mb-2" style="word-break:break-all"></div>
         <button id="btnCopyEntradaPix" type="button" class="btn btn-sm btn-outline-secondary f-exo mb-2" style="display:none">
-          Copiar código
+          <?= t('Copiar código') ?>
         </button>
         <div id="entrada-pix-expiry" class="text-muted small"></div>
       </div>

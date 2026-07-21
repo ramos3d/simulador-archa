@@ -3,19 +3,19 @@
   <div id="card-preco" class="card shadow-sm p-4">
     <?php if (defined('PROMO_CLIENTE') && PROMO_CLIENTE): ?>
       <div class="promo-header-blackfriday f-exo">
-        <span class="promo-text"><b>Black Friday Archa </b><strong class="text-rosa">15% OFF</strong></span>
+        <span class="promo-text"><b><?= t('Black Friday Archa') ?> </b><strong class="text-rosa">15% OFF</strong></span>
       </div>
     <?php endif; ?>
 
-    <h5 class="fw-bold mb-1 text-start f-exo card-m9">Orçamento do seu projeto de arquitetura</h5>
-    <p id="orcamento-resumo" class="card-m9 small text-secondary text-start itens-margem-b f-anek f-14">Nenhuma informação preenchida</p>
+    <h5 class="fw-bold mb-1 text-start f-exo card-m9"><?= t('Orçamento do seu projeto de arquitetura') ?></h5>
+    <p id="orcamento-resumo" class="card-m9 small text-secondary text-start itens-margem-b f-anek f-14"><?= t('Nenhuma informação preenchida') ?></p>
     <div id="vant-card" class="vant-card text-start f-exo lista-desktop-margem" style="margin-bottom:-15px;">
       <ul id="vantagensExtras" class="vant-list benef-list mb-2 d-none"></ul>
       <ul id="vantItensMobile" class="vant-list benef-list mb-2"></ul>
     </div>
 
     <hr class="my-3 card-m9">
-    <p class="text-start f-14 f-anek card-m9" style="margin-bottom:-1px;">Opções de contratação</p>
+    <p class="text-start f-14 f-anek card-m9" style="margin-bottom:-1px;"><?= t('Opções de contratação') ?></p>
 
     <div class="accordion accordion-flush" id="planAccordion">
 
@@ -32,12 +32,12 @@
                   <span class="plan-radio me-2"><span class="radio-indicator"></span></span>
                   <div class="plan-price-block">
                     <div class="install-line">
-                      <span class="install-prefix">10x de</span>
+                      <span class="install-prefix"><?= t('10x de') ?></span>
                       <span id="priceSolo" class="plan-price">R$ 0,00</span>
-                      <span class="badge-off ms-auto">15% OFF à vista</span>
+                      <span class="badge-off ms-auto"><?= t('15% OFF à vista') ?></span>
                     </div>
                     <div class="cash-line">
-                      <span class="cash-prefix">+</span> <strong id="priceSoloAvista" class="cash">R$ 0,00</strong> <span class="cash-suffix">após contratação</span>
+                      <span class="cash-prefix">+</span> <strong id="priceSoloAvista" class="cash">R$ 0,00</strong> <span class="cash-suffix"><?= t('após contratação') ?></span>
                     </div>
                   </div>
                 </div>
@@ -48,10 +48,10 @@
         <div id="planSolo" class="accordion-collapse collapse" data-bs-parent="#planAccordion">
           <div class="accordion-body py-2">
             <ul class="benef-list mb-0 text-start mb-2">
-              <li><strong>1 projeto completo:</strong> Moodboard e Referências; Imagens 3D, Planta de Layout; Planta de Obra Civil; Memorial Descritivo</li>
-              <li><strong>2</strong> revisões</li>
-              <li><strong>Assistente pessoal</strong> do início ao fim</li>
-              <li><strong>Desconto</strong> com marcas parceiras</li>
+              <li><strong><?= t('1 projeto completo:') ?></strong> <?= t('Moodboard e Referências; Imagens 3D, Planta de Layout; Planta de Obra Civil; Memorial Descritivo') ?></li>
+              <li><strong>2</strong> <?= t('revisões') ?></li>
+              <li><strong><?= t('Assistente pessoal') ?></strong> <?= t('do início ao fim') ?></li>
+              <li><strong><?= t('Desconto') ?></strong> <?= t('com marcas parceiras') ?></li>
             </ul>
           </div>
         </div>
@@ -67,18 +67,18 @@
               <div class="plan-main flex-grow-1">
                 <div class="d-flex align-items-center mb-1">
                   <div class="plan-title text-uppercase f-anek mb-0">Duo</div>
-                  <span class="badge-recomendado ms-2">Recomendado</span>
+                  <span class="badge-recomendado ms-2"><?= t('Recomendado') ?></span>
                 </div>
                 <div class="d-flex align-items-center">
                   <span class="plan-radio me-2"><span class="radio-indicator"></span></span>
                   <div class="plan-price-block">
                     <div class="install-line">
-                      <span class="install-prefix">10x de</span>
+                      <span class="install-prefix"><?= t('10x de') ?></span>
                       <span id="priceDuo" class="plan-price">R$ 0,00</span>
-                      <span class="badge-off ms-auto">15% OFF à vista</span>
+                      <span class="badge-off ms-auto"><?= t('15% OFF à vista') ?></span>
                     </div>
                     <div class="cash-line">
-                      <span class="cash-prefix">+</span> <strong id="priceDuoAvista" class="cash">R$ 0,00</strong> <span class="cash-suffix">após contratação</span>
+                      <span class="cash-prefix">+</span> <strong id="priceDuoAvista" class="cash">R$ 0,00</strong> <span class="cash-suffix"><?= t('após contratação') ?></span>
                     </div>
                   </div>
                 </div>
@@ -89,12 +89,12 @@
         <div id="planDuo" class="accordion-collapse collapse" data-bs-parent="#planAccordion">
           <div class="accordion-body py-2">
             <ul class="benef-list mb-0 text-start mb-2">
-              <li><strong>Tudo do Solo +</strong></li>
-              <li><strong>2</strong> projetos completos</li>
-              <li><strong>Vídeos explicativos</strong> dos projetos</li>
+              <li><strong><?= t('Tudo do Solo +') ?></strong></li>
+              <li><strong>2</strong> <?= t('projetos completos') ?></li>
+              <li><strong><?= t('Vídeos explicativos') ?></strong> <?= t('dos projetos') ?></li>
               <li>
-                <strong>Desconto de 10%</strong> na contratação de
-                <a href="<?= BASE_URL ?>/arquivos/tabela_de_serviços_adicionais.pdf" target="_blank" rel="noopener noreferrer">serviços adicionais</a>
+                <strong><?= t('Desconto de 10%') ?></strong> <?= t('na contratação de') ?>
+                <a href="<?= BASE_URL ?>/arquivos/tabela_de_serviços_adicionais.pdf" target="_blank" rel="noopener noreferrer"><?= t('serviços adicionais') ?></a>
               </li>
             </ul>
           </div>
@@ -114,12 +114,12 @@
                   <span class="plan-radio me-2"><span class="radio-indicator"></span></span>
                   <div class="plan-price-block">
                     <div class="install-line">
-                      <span class="install-prefix">10x de</span>
+                      <span class="install-prefix"><?= t('10x de') ?></span>
                       <span id="priceTrio" class="plan-price">R$ 0,00</span>
-                      <span class="badge-off ms-auto">15% OFF à vista</span>
+                      <span class="badge-off ms-auto"><?= t('15% OFF à vista') ?></span>
                     </div>
                     <div class="cash-line">
-                      <span class="cash-prefix">+</span> <strong id="priceTrioAvista" class="cash">R$ 0,00</strong> <span class="cash-suffix">após contratação</span>
+                      <span class="cash-prefix">+</span> <strong id="priceTrioAvista" class="cash">R$ 0,00</strong> <span class="cash-suffix"><?= t('após contratação') ?></span>
                     </div>
                   </div>
                 </div>
@@ -130,13 +130,13 @@
         <div id="planTrio" class="accordion-collapse collapse" data-bs-parent="#planAccordion">
           <div class="accordion-body py-2">
             <ul class="benef-list mb-0 text-start mb-2">
-              <li><strong>Tudo do Duo +</strong></li>
-              <li><strong>3</strong> propostas de projetos</li>
-              <li>Planilha de <strong>orçamento</strong> de produtos</li>
-              <li><strong>+1</strong> reunião de revisão</li>
+              <li><strong><?= t('Tudo do Duo +') ?></strong></li>
+              <li><strong>3</strong> <?= t('propostas de projetos') ?></li>
+              <li><?= t('Planilha de <strong>orçamento</strong> de produtos') ?></li>
+              <li><strong>+1</strong> <?= t('reunião de revisão') ?></li>
               <li>
-                <strong>Desconto de 20%</strong> na contratação de
-                <a href="<?= BASE_URL ?>/arquivos/tabela_de_serviços_adicionais.pdf" target="_blank" rel="noopener noreferrer">serviços adicionais</a>
+                <strong><?= t('Desconto de 20%') ?></strong> <?= t('na contratação de') ?>
+                <a href="<?= BASE_URL ?>/arquivos/tabela_de_serviços_adicionais.pdf" target="_blank" rel="noopener noreferrer"><?= t('serviços adicionais') ?></a>
               </li>
             </ul>
           </div>
@@ -148,7 +148,7 @@
     <button type="button" id="btnIrPagamento"
       class="text-secondary btn-outline-grey mt-4 w-100 btnIrParaPagamento btnCustomizado f-exo"
       style="margin-top:-1px; padding:3%; width:105%; margin-left:-9px;">
-      Avançar
+      <?= t('Avançar') ?>
     </button>
 
     <!-- Garantia: devolução do dinheiro -->
@@ -156,9 +156,9 @@
       <div class="d-flex align-items-start gap-2">
         <span style="font-size:1.3rem;line-height:1">🛡️</span>
         <div>
-          <strong style="display:block;color:#262942;font-size:.85rem">Garantia de devolução</strong>
+          <strong style="display:block;color:#262942;font-size:.85rem"><?= t('Garantia de devolução') ?></strong>
           <span style="font-size:.82rem;color:#555;line-height:1.4">
-            Se a experiência não atender suas expectativas, <strong>devolvemos seu dinheiro</strong>.
+            <?= t('Se a experiência não atender suas expectativas, <strong>devolvemos seu dinheiro</strong>.') ?>
           </span>
         </div>
       </div>

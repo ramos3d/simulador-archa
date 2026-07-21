@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="<?= SIM_LANG === 'en' ? 'en' : 'pt-BR' ?>">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Simulador de Projetos - Archa</title>
-  <?php emit_robots(); emit_app_meta(); emit_gtm_head(); ?>
+  <title><?= t('Simulador de Projetos - Archa') ?></title>
+  <?php emit_robots(); emit_app_meta(); emit_gtm_head(); emit_jt_bootstrap(); ?>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Anek+Latin:wght@300;400;500;600;700;800&family=Exo+2:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -32,8 +32,8 @@
     <a class="navbar-brand" href="https://archa.com.br">
       <img src="<?= ASSETS_BASE ?>/images/logo-azul.png" alt="Archa" height="36">
     </a>
-    <a href="https://api.whatsapp.com/send/?phone=5511942892984&text=Ol%C3%A1%21+Gostaria+de+ajuda+com+o+simulador+Archa." target="_blank" rel="noopener" class="btn btn-sm btn-outline-secondary f-exo">
-      <img src="<?= ASSETS_BASE ?>/images/icon-whatsapp.png" alt="WhatsApp" width="18" class="me-1"> Ajuda
+    <a href="https://api.whatsapp.com/send/?phone=5511942892984&text=<?= rawurlencode(t('Olá! Gostaria de ajuda com o simulador Archa.')) ?>" target="_blank" rel="noopener" class="btn btn-sm btn-outline-secondary f-exo">
+      <img src="<?= ASSETS_BASE ?>/images/icon-whatsapp.png" alt="WhatsApp" width="18" class="me-1"> <?= t('Ajuda') ?>
     </a>
   </div>
 </nav>

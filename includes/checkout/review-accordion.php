@@ -9,7 +9,7 @@
         <img src="<?= ASSETS_BASE ?>/images/icon-opcoes-contratacao.png" alt="">
       </div>
       <div>
-        <div class="ck-muted" style="font-size:.7rem;line-height:1">Opção de contratação</div>
+        <div class="ck-muted" style="font-size:.7rem;line-height:1"><?= t('Opção de contratação') ?></div>
         <div id="sumPlano" class="fw-bold f-anek" style="font-size:1.05rem;line-height:1.2">Archa Duo</div>
       </div>
     </div>
@@ -17,10 +17,10 @@
       <!-- Botão Editar - estilo archa-form: azul escuro com ícone -->
       <button id="btnEditarProjeto" type="button"
               class="btn-editar-archa f-exo"
-              title="Editar projeto"
+              title="<?= t('Editar projeto') ?>"
               onclick="event.stopPropagation()">
-        <img src="<?= ASSETS_BASE ?>/images/pencil-green.png" alt="Editar" width="13" style="filter:brightness(0) invert(1)">
-        Editar
+        <img src="<?= ASSETS_BASE ?>/images/pencil-green.png" alt="<?= t('Editar') ?>" width="13" style="filter:brightness(0) invert(1)">
+        <?= t('Editar') ?>
       </button>
       <!-- Chevron indicador -->
       <span class="review-chevron" aria-hidden="true">&#8964;</span>
@@ -31,9 +31,12 @@
   <div id="reviewAccordionBody" class="review-acc-body" style="display:none">
     <div class="ck-body py-2 px-3">
       <div class="review-grid small">
-        <div><strong id="sumM2">–</strong> · <strong><span id="sumAmb">–</span></strong> ambientes · <strong id="sumTipo">–</strong></div>
-        <div>Profissionais <strong id="sumCategoria">–</strong> de <strong id="sumRegiao">–</strong></div>
-        <div>Entrega em <strong><span id="sumPrazo">–</span> dias</strong> · <strong><span id="sumAdic">0</span></strong> itens adicionais</div>
+        <div><strong id="sumM2">–</strong> · <strong><span id="sumAmb">–</span></strong> <?= t('ambientes') ?> · <strong id="sumTipo">–</strong></div>
+        <div><?= t('Profissionais {cat} de {reg}', ['cat' => '<strong id="sumCategoria">–</strong>', 'reg' => '<strong id="sumRegiao">–</strong>']) ?></div>
+        <div><?= t('Entrega em {prazo} dias · {adic} itens adicionais', [
+            'prazo' => '<strong><span id="sumPrazo">–</span></strong>',
+            'adic'  => '<strong><span id="sumAdic">0</span></strong>',
+        ]) ?></div>
       </div>
     </div>
   </div>
@@ -96,7 +99,7 @@
   btnEditar.addEventListener('click', () => {
     const qs   = new URLSearchParams(location.search);
     const slug = (window.CHECKOUT_SLUG || qs.get('projeto') || localStorage.getItem('checkoutSlug') || '').trim();
-    if (!slug) { alert('Projeto não identificado. Recarregue e tente novamente.'); return; }
+    if (!slug) { alert("<?= addslashes(t('Projeto não identificado. Recarregue e tente novamente.')) ?>"); return; }
     localStorage.setItem('checkoutSlug', slug);
     location.href = `index.php?projeto=${slug}&mode=edit`;
   });

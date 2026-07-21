@@ -61,12 +61,12 @@ function populateReview(data) {
 
     const prod = (data.produto_code || 'duo').toLowerCase();
     set('sumPlano',     `Archa ${prod.charAt(0).toUpperCase() + prod.slice(1)}`);
-    set('sumRegiao',    data.regiao_arquiteto === 'MINHA_REGIAO' ? 'da minha região' : 'todo Brasil');
+    set('sumRegiao',    data.regiao_arquiteto === 'MINHA_REGIAO' ? window.jt('da minha região') : window.jt('todo Brasil'));
     set('sumPrazo',     data.prazo_dias ?? '21');
-    set('sumCategoria', data.categoria_arquiteto ?? 'Estreantes');
+    set('sumCategoria', window.jt(data.categoria_arquiteto ?? 'Estreantes'));
     set('sumM2',        `${data.metragem ?? '?'} m²`);
     set('sumAmb',       data.qtd_ambientes ?? '?');
-    set('sumTipo',      data.tipo_projeto ?? '');
+    set('sumTipo',      window.jt(data.tipo_projeto ?? ''));
 
     const adics = Array.isArray(data.adicionais) ? data.adicionais.length : 0;
     set('sumAdic', String(adics));
@@ -130,7 +130,7 @@ async function init() {
 
     if (!slug) {
         document.querySelector('main')?.insertAdjacentHTML('afterbegin',
-            '<div class="alert alert-warning m-4">Projeto não encontrado. <a href="index.php">Voltar ao simulador</a>.</div>'
+            `<div class="alert alert-warning m-4">${window.jt('Projeto não encontrado.')} <a href="index.php">${window.jt('Voltar ao simulador')}</a>.</div>`
         );
         return;
     }

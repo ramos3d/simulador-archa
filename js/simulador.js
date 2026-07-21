@@ -324,7 +324,7 @@ async function primeiroCalculo() {
 
     const res = await fetch(CONFIG.apiParametros(uuid), { cache: 'no-store' });
     const json = await res.json();
-    if (!res.ok || json.status !== 'success') throw Error('Falha ao obter parâmetros');
+    if (!res.ok || json.status !== 'success') throw Error(window.jt('Falha ao obter parâmetros'));
 
     state.paramTab = json.parametros;
     state.cacheBorn = Date.now();
@@ -381,9 +381,9 @@ function updateVantFromCurrentUI() {
         ambientes: +document.getElementById('qtd_amb')?.value || 0,
         metragem: +document.getElementById('area')?.value || 0,
         categoria: getCat(),
-        regiao: getReg() === 'BRASIL_TODO' ? 'todo Brasil' : 'minha região',
+        regiao: getReg() === 'BRASIL_TODO' ? window.jt('todo Brasil') : window.jt('minha região'),
         prazo: getPrazo(),
-        novaArea: getNova() === 'SIM' ? 'SIM' : 'NÃO',
+        novaArea: getNova() === 'SIM' ? window.jt('SIM') : window.jt('NÃO'),
         adicionalCount: adicionaisCount
     });
 }
@@ -474,7 +474,7 @@ function paintVerPrecoButton(soloParcela) {
     // Sem cálculo válido → volta ao padrão
     if (!Number.isFinite(soloParcela) || soloParcela <= 0) {
         btn.classList.remove('btn-ver-preco-active');
-        btn.textContent = 'Ver preço';
+        btn.textContent = window.jt('Ver preço');
         return;
     }
 
@@ -483,7 +483,7 @@ function paintVerPrecoButton(soloParcela) {
 
     btn.innerHTML = `
         <span style="display:flex; align-items:center; gap:8px; width:100%; justify-content:center;color:#262942!important;">
-            A partir de 10x de <strong>${money(soloParcela)}</strong>
+            ${window.jt('A partir de 10x de')} <strong>${money(soloParcela)}</strong>
         </span>
     `;
 }
@@ -939,7 +939,7 @@ btnVerPreco?.addEventListener('click', async () => {
         return;
     } finally {
         document.getElementById('spinnerVerPreco')?.remove();
-        btnVerPreco.textContent = 'Ver preço';
+        btnVerPreco.textContent = window.jt('Ver preço');
         btnVerPreco.disabled = true;
         btnVerPreco.classList.add('btn-disabled');
         btnVerPreco.dataset.locked = '1';
@@ -1013,13 +1013,13 @@ window.simulator = { state, cacheLive, primeiroCalculo, scheduleRecalc };
         }
         const token = localStorage.getItem('leadUuid');
         if (!token) {
-            alert('Lead não localizado. Clique em "Ver preço" e tente novamente.');
+            alert(window.jt('Lead não localizado. Clique em "Ver preço" e tente novamente.'));
             return;
         }
 
         const ov = document.createElement('div');
         ov.id = 'processingOverlay';
-        ov.textContent = 'Gerando contrato…';
+        ov.textContent = window.jt('Gerando contrato…');
         document.body.appendChild(ov);
 
         try {
@@ -1039,9 +1039,9 @@ window.simulator = { state, cacheLive, primeiroCalculo, scheduleRecalc };
                 if (!cpfIsValid(cpfNum)) {
                     if (tipo === 'CNPJ') {
                         repCpfInp?.classList.add('is-invalid'); repCpfInp?.focus();
-                        throw new Error('Informe um CPF válido do representante.');
+                        throw new Error(window.jt('Informe um CPF válido do representante.'));
                     } else {
-                        throw new Error('Informe um CPF válido.');
+                        throw new Error(window.jt('Informe um CPF válido.'));
                     }
                 }
             }

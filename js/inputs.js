@@ -51,12 +51,12 @@ $(function () {
       const digits = this.value.replace(/\D+/g, '');
       if (!digits) {
         $el.addClass('is-invalid');
-        fb.text('Informe o seu Whatsapp');
+        fb.text(window.jt('Informe o seu Whatsapp'));
         return setFilled($el, false);
       }
       const ok = digits.length >= 10; // aceita 10 ou 11
       $el.toggleClass('is-invalid', !ok);
-      if (!ok) fb.text('Informe um Whatsapp válido.');
+      if (!ok) fb.text(window.jt('Informe um Whatsapp válido.'));
       setFilled($el, ok);
     });
 
@@ -102,12 +102,12 @@ $(function () {
     const email = $el.val().trim();
     if (!email) {
       $el.addClass('is-invalid');
-      fb.text('Informe o e-mail.');
+      fb.text(window.jt('Informe o e-mail.'));
       return setFilled($el, false);
     }
     const ok = /^[^\s@]+@[^\s@]+\.[^\s@]+$/i.test(email);
     $el.toggleClass('is-invalid', !ok);
-    if (!ok) fb.text('E-mail inválido.');
+    if (!ok) fb.text(window.jt('E-mail inválido.'));
     setFilled($el, ok);
   });
 
@@ -184,12 +184,12 @@ $(function () {
     const v = String($el.val() || '').replace(/\D+/g, '');
     if (!v) {
       $el.addClass('is-invalid');
-      fb.text('Informe o (DDI).');
+      fb.text(window.jt('Informe o (DDI).'));
       return setFilled($el, false);
     }
     const ok = v.length >= 1 && v.length <= 3;
     $el.toggleClass('is-invalid', !ok);
-    if (!ok) fb.text('DDI deve ter 1 a 3 dígitos.');
+    if (!ok) fb.text(window.jt('DDI deve ter 1 a 3 dígitos.'));
     setFilled($el, ok);
   });
 

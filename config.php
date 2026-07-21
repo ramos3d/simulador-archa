@@ -140,6 +140,55 @@ if (!function_exists('api_url_parametros')) {
 }
 
 // ===============================
+// Idioma (PT/EN) — PT é o idioma fonte (fica direto no código),
+// EN vive em lang/en.php. Chave do dicionario = texto original em PT.
+// ===============================
+if (!defined('SIM_LANG')) {
+    $simLangParam = $_GET['lang'] ?? null;
+    if ($simLangParam === 'en' || $simLangParam === 'pt') {
+        $simLang = $simLangParam;
+    } else {
+        $simLang = ($_COOKIE['sim_lang'] ?? 'pt') === 'en' ? 'en' : 'pt';
+    }
+    define('SIM_LANG', $simLang);
+
+    if (($_COOKIE['sim_lang'] ?? null) !== SIM_LANG && !headers_sent()) {
+        setcookie('sim_lang', SIM_LANG, [
+            'expires'  => time() + 60 * 60 * 24 * 365,
+            'path'     => '/',
+            'samesite' => 'Lax',
+        ]);
+    }
+}
+
+if (!isset($GLOBALS['SIM_EN_DICT'])) {
+    $GLOBALS['SIM_EN_DICT'] = SIM_LANG === 'en' ? require APP_ROOT . '/lang/en.php' : [];
+}
+
+if (!function_exists('t')) {
+    function t(string $pt, array $vars = []): string {
+        $text = $GLOBALS['SIM_EN_DICT'][$pt] ?? $pt;
+        foreach ($vars as $k => $v) $text = str_replace('{' . $k . '}', (string) $v, $text);
+        return $text;
+    }
+}
+
+if (!function_exists('emit_jt_bootstrap')) {
+    /** Injeta window.SIM_LANG/SIM_STRINGS/jt() — equivalente em JS do t() do PHP, mesmo dicionario. */
+    function emit_jt_bootstrap(): void {
+        echo '<script>', PHP_EOL;
+        echo '  window.SIM_LANG = ', json_encode(SIM_LANG), ';', PHP_EOL;
+        echo '  window.SIM_STRINGS = ', json_encode($GLOBALS['SIM_EN_DICT'], JSON_UNESCAPED_UNICODE), ';', PHP_EOL;
+        echo '  window.jt = function (pt, vars) {', PHP_EOL;
+        echo '    var s = (window.SIM_STRINGS && window.SIM_STRINGS[pt]) || pt;', PHP_EOL;
+        echo "    if (vars) { for (var k in vars) s = s.split('{' + k + '}').join(vars[k]); }", PHP_EOL;
+        echo '    return s;', PHP_EOL;
+        echo '  };', PHP_EOL;
+        echo '</script>', PHP_EOL;
+    }
+}
+
+// ===============================
 // Google Tag Manager
 // ===============================
 if (!function_exists('emit_gtm_head')) {

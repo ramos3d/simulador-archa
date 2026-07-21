@@ -3,12 +3,12 @@ require_once __DIR__ . '/config.php';
 $slug = isset($_GET['checkout']) ? trim($_GET['checkout']) : '';
 ?>
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="<?= SIM_LANG === 'en' ? 'en' : 'pt-BR' ?>">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Projeto confirmado - Archa</title>
-  <?php emit_robots(); emit_gtm_head(); ?>
+  <title><?= t('Projeto confirmado - Archa') ?></title>
+  <?php emit_robots(); emit_gtm_head(); emit_jt_bootstrap(); ?>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Anek+Latin:wght@300;400;700;800&family=Exo+2:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
@@ -40,29 +40,32 @@ $slug = isset($_GET['checkout']) ? trim($_GET['checkout']) : '';
 
 <main class="flex-grow-1">
   <div class="container ty-hero">
-    <img src="<?= ASSETS_BASE ?>/images/arte-thankyou.png" alt="Projeto confirmado" class="ty-img mb-4">
+    <img src="<?= ASSETS_BASE ?>/images/arte-thankyou.png" alt="<?= t('Projeto confirmado') ?>" class="ty-img mb-4">
 
     <h1 class="ty-title mb-3">
-      Obrigado, <span class="ty-name" id="tkNome">Cliente</span>!
+      <?= t('Obrigado, {nome}!', ['nome' => '<span class="ty-name" id="tkNome">' . t('Cliente') . '</span>']) ?>
     </h1>
     <h2 class="ty-sub mb-4" style="font-size:1.4rem">
-      Seu projeto com a Archa está pronto para começar.
+      <?= t('Seu projeto com a Archa está pronto para começar.') ?>
     </h2>
     <p class="lead mb-2" style="font-size:1rem">
-      O <strong id="tkPlano">Plano Archa</strong> para
-      <strong id="tkTipo">seu imóvel</strong> começou!
-      <strong id="tkAmb"></strong> em <strong id="tkM2"></strong>, feitos para refletir o seu estilo.
+      <?= t('O {plano} para {tipo} começou! {amb} em {m2}, feitos para refletir o seu estilo.', [
+          'plano' => '<strong id="tkPlano">' . t('Plano Archa') . '</strong>',
+          'tipo'  => '<strong id="tkTipo">' . t('seu imóvel') . '</strong>',
+          'amb'   => '<strong id="tkAmb"></strong>',
+          'm2'    => '<strong id="tkM2"></strong>',
+      ]) ?>
     </p>
     <p class="text-muted mb-5" style="font-size:.95rem">
-      Nosso time entrará em contato em breve. Confira seu e-mail para os próximos passos.
+      <?= t('Nosso time entrará em contato em breve. Confira seu e-mail para os próximos passos.') ?>
     </p>
 
     <div class="d-flex flex-column flex-sm-row justify-content-center gap-3">
-      <a href="https://api.whatsapp.com/send/?phone=5511942892984&text=Olá!+Acabei+de+contratar+um+projeto+com+a+Archa."
+      <a href="https://api.whatsapp.com/send/?phone=5511942892984&text=<?= rawurlencode(t('Olá! Acabei de contratar um projeto com a Archa.')) ?>"
          class="btn btn-lg btn-whats f-exo d-inline-flex align-items-center justify-content-center gap-2"
          target="_blank" rel="noopener">
         <img src="<?= ASSETS_BASE ?>/images/icon-whatsapp.png" alt="WhatsApp" width="20">
-        Falar com a Archa
+        <?= t('Falar com a Archa') ?>
       </a>
     </div>
   </div>
@@ -70,7 +73,7 @@ $slug = isset($_GET['checkout']) ? trim($_GET['checkout']) : '';
 
 <footer class="py-4 border-top bg-white mt-auto">
   <div class="container text-center">
-    <p class="text-muted small mb-0">© <?= date('Y') ?> Archa. Todos os direitos reservados.</p>
+    <p class="text-muted small mb-0"><?= t('© {year} Archa. Todos os direitos reservados.', ['year' => date('Y')]) ?></p>
   </div>
 </footer>
 

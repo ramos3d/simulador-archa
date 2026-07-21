@@ -166,7 +166,8 @@ document.addEventListener('DOMContentLoaded', () => {
   async function getVantagens() {
     if (vantCache) return vantCache;
     try {
-      const r = await fetch('json/vantagens.json', { cache: 'no-store' });
+      const vantagensFile = (window.SIM_LANG === 'en') ? 'json/vantagens_en.json' : 'json/vantagens.json';
+      const r = await fetch(vantagensFile, { cache: 'no-store' });
       vantCache = await r.json();
     } catch (err) {
       console.warn('[vantagens] falhou:', err);
@@ -241,19 +242,21 @@ window.updateVantCard = function ({
 
   // 2) Define singular/plural
   const itensLabel = (adicionalCount === 1)
-    ? 'item adicional inserido'
-    : 'itens adicionais inseridos';
+    ? window.jt('item adicional inserido')
+    : window.jt('itens adicionais inseridos');
+  const ambientesLabel = (ambientes === 1) ? window.jt('ambiente') : window.jt('ambientes');
+  const editLabel = window.jt('editar');
 
   // 3) HTML (texto à esquerda + ícone lápis à direita)
   const html = `
-    <li><span class="text-part">${normalizeAllCaps(tipo || '-')}</span><a class="edit" href="#accordionStep1"><img src="images/pencil.png" alt="editar"></a></li>
-    <li><span class="text-part"><strong>${ambientes}</strong> ${ambientes === 1 ? 'ambiente' : 'ambientes'} a serem projetados</span><a class="edit" href="#accordionStep1"><img src="images/pencil.png" alt="editar"></a></li>
-    <li><span class="text-part">Área do projeto de <strong>${metragem} m²</strong></span><a class="edit" href="#accordionStep1"><img src="images/pencil.png" alt="editar"></a></li>
-    <li><span class="text-part">Arquitetos <strong>${normalizeAllCaps(String(categoria || ''))}</strong></span><a class="edit" href="#accordionStep2"><img src="images/pencil.png" alt="editar"></a></li>
-    <li><span class="text-part">Escritórios de <strong>${regiao}</strong></span><a class="edit" href="#accordionStep2"><img src="images/pencil.png" alt="editar"></a></li>
-    <li><span class="text-part">Receber em <strong>${prazo} dias</strong></span><a class="edit" href="#accordionStep3"><img src="images/pencil.png" alt="editar"></a></li>
-    <li><span class="text-part">Construção de nova área <strong>${normalizeAllCaps(novaArea)}</strong></span><a class="edit" href="#accordionStep3"><img src="images/pencil.png" alt="editar"></a></li>
-    <li><span class="text-part"><strong>${adicionalCount}</strong> ${itensLabel}</span><a class="edit" href="#accordionStep3"><img src="images/pencil.png" alt="editar"></a></li>
+    <li><span class="text-part">${normalizeAllCaps(window.jt(tipo || '-'))}</span><a class="edit" href="#accordionStep1"><img src="images/pencil.png" alt="${editLabel}"></a></li>
+    <li><span class="text-part"><strong>${ambientes}</strong> ${ambientesLabel} ${window.jt('a serem projetados')}</span><a class="edit" href="#accordionStep1"><img src="images/pencil.png" alt="${editLabel}"></a></li>
+    <li><span class="text-part">${window.jt('Área do projeto de')} <strong>${metragem} m²</strong></span><a class="edit" href="#accordionStep1"><img src="images/pencil.png" alt="${editLabel}"></a></li>
+    <li><span class="text-part">${window.jt('Arquitetos')} <strong>${normalizeAllCaps(window.jt(String(categoria || '')))}</strong></span><a class="edit" href="#accordionStep2"><img src="images/pencil.png" alt="${editLabel}"></a></li>
+    <li><span class="text-part">${window.jt('Escritórios de')} <strong>${regiao}</strong></span><a class="edit" href="#accordionStep2"><img src="images/pencil.png" alt="${editLabel}"></a></li>
+    <li><span class="text-part">${window.jt('Receber em')} <strong>${prazo} ${window.jt('dias')}</strong></span><a class="edit" href="#accordionStep3"><img src="images/pencil.png" alt="${editLabel}"></a></li>
+    <li><span class="text-part">${window.jt('Construção de nova área')} <strong>${normalizeAllCaps(novaArea)}</strong></span><a class="edit" href="#accordionStep3"><img src="images/pencil.png" alt="${editLabel}"></a></li>
+    <li><span class="text-part"><strong>${adicionalCount}</strong> ${itensLabel}</span><a class="edit" href="#accordionStep3"><img src="images/pencil.png" alt="${editLabel}"></a></li>
   `;
 
   // 4) Atualiza TODAS as listas (mobile + desktop)

@@ -152,7 +152,7 @@ async function startCheckout(produto) {
         json = await resp.json().catch(() => ({}));
     } catch (e) {
         console.error('[simulator] fetch error', e);
-        alert('Erro de rede. Tente novamente.');
+        alert(window.jt('Erro de rede. Tente novamente.'));
         return;
     }
 
@@ -162,9 +162,9 @@ async function startCheckout(produto) {
         console.error('[simulator] checkout/start falhou', { status: resp.status, json, payload });
         if (json?.errors) {
             const msgs = Object.entries(json.errors).map(([k, v]) => `${k}: ${Array.isArray(v) ? v.join(', ') : v}`).join('\n');
-            alert(`Erros de validação:\n\n${msgs}`);
+            alert(`${window.jt('Erros de validação:')}\n\n${msgs}`);
         } else {
-            alert(json?.message || json?.error || 'Não foi possível iniciar o checkout.');
+            alert(json?.message || json?.error || window.jt('Não foi possível iniciar o checkout.'));
         }
         return;
     }
@@ -183,14 +183,14 @@ function init() {
         /* Bloqueia se faltar dado básico */
         const get = (id) => document.getElementById(id)?.value?.trim() || '';
         if (!get('nome') || !get('email') || !get('fone') || (+get('area') <= 0) || (+get('qtd_amb') <= 0)) {
-            alert('Preencha nome, e-mail, WhatsApp, área e ambientes antes de avançar.');
+            alert(window.jt('Preencha nome, e-mail, WhatsApp, área e ambientes antes de avançar.'));
             return;
         }
 
         const old = btn.textContent;
         try {
             btn.disabled = true;
-            btn.textContent = 'Iniciando…';
+            btn.textContent = window.jt('Iniciando…');
 
             try { await calcularDoFormulario(); }
             catch (err) { console.warn('[simulator] cálculo falhou, continuando com cache', err); }

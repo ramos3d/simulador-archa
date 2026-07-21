@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const set = (id, txt) => { const el = document.getElementById(id); if (el && txt) el.textContent = txt; };
 
-    set('tkNome',  data.nome      || 'Cliente');
+    set('tkNome',  data.nome      || (window.jt ? window.jt('Cliente') : 'Cliente'));
     set('tkAmb',   data.ambientes || '');
     set('tkTipo',  data.tipo      || '');
     set('tkM2',    data.metragem  || '');

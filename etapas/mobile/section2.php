@@ -7,7 +7,7 @@
         aria-expanded="false" aria-controls="step2">
         <span class="step-badge d-inline-flex align-items-center
                      justify-content-center flex-shrink-0">2</span>
-        <span class="fw-bold fs-5 text-blue f-anek">Encontre o arquiteto ideal para o seu projeto.</span>
+        <span class="fw-bold fs-5 text-blue f-anek"><?= t('Encontre o arquiteto ideal para o seu projeto.') ?></span>
       </button>
     </h2>
 
@@ -15,9 +15,7 @@
       <div class="accordion-body">
 
         <p class="small text-secondary mb-3 text-start f-14 f-exo">
-          Todos os profissionais da nossa plataforma passam por uma seleção criteriosa.
-          Escolha a categoria de profissionais que você prefere realizar o seu projeto de
-          arquitetura e decoração.
+          <?= t('Todos os profissionais da nossa plataforma passam por uma seleção criteriosa. Escolha a categoria de profissionais que você prefere realizar o seu projeto de arquitetura e decoração.') ?>
         </p>
 
         <!-- CATEGORIA DE PROFISSIONAL (um único selecionado) -->
@@ -28,8 +26,8 @@
               <img src="images/icons/questao_2/Active/estreantes.png" class="flex-shrink-0">
 
               <div class="opt-text text-start">
-                <h6 class="opt-title mb-1 ">ESTREANTES</h6>
-                <p class="text-secondary mb-0">Qualificados, mas com pouca experiência em concorrências.</p>
+                <h6 class="opt-title mb-1 "><?= t('ESTREANTES') ?></h6>
+                <p class="text-secondary mb-0"><?= t('Qualificados, mas com pouca experiência em concorrências.') ?></p>
               </div>
             </div>
           </div>
@@ -41,8 +39,8 @@
               <img class="mb-2"
                 src="images/icons/questao_2/Default/verificados.png">
               <div class="opt-text text-start">
-                <p class="mb-0 fw-bold">VERIFICADOS</p>
-                <p class="text-secondary mb-0">Qualificados, treinados e com experiência em projetos pela Archa.</p>
+                <p class="mb-0 fw-bold"><?= t('VERIFICADOS') ?></p>
+                <p class="text-secondary mb-0"><?= t('Qualificados, treinados e com experiência em projetos pela Archa.') ?></p>
               </div>
             </div>
           </div>
@@ -54,8 +52,8 @@
                 src="images/icons/questao_2/Default/preferidos.png">
               <div class="opt-text text-start">
 
-                <p class="mb-0 fw-bold">PREFERIDOS</p>
-                <p class="text-secondary mb-0">Os mais escolhidos pelos nossos clientes! Portfólio e desempenho de excelência.</p>
+                <p class="mb-0 fw-bold"><?= t('PREFERIDOS') ?></p>
+                <p class="text-secondary mb-0"><?= t('Os mais escolhidos pelos nossos clientes! Portfólio e desempenho de excelência.') ?></p>
               </div>
             </div>
           </div>
@@ -67,14 +65,14 @@
             <div class="option-box border rounded p-3 h-100 text-start d-flex align-items-center gap-3 selected"
               data-reg="BRASIL_TODO">
               <div class="radio-indicator"></div>
-              <span class="f-exo small">Estou aberto a escritórios de todo Brasil</span>
+              <span class="f-exo small"><?= t('Estou aberto a escritórios de todo Brasil') ?></span>
             </div>
           </div>
           <div class="col-md-6 mb-3">
             <div class="option-box border rounded p-3 h-100 text-start d-flex align-items-center gap-3"
               data-reg="MINHA_REGIAO">
               <div class="radio-indicator"></div>
-              <span class="f-exo small">Quero apenas profissionais da minha região</span>
+              <span class="f-exo small"><?= t('Quero apenas profissionais da minha região') ?></span>
               <img src="images/mais-caro.svg" alt="aumento" data-noswap>
             </div>
           </div>

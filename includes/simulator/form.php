@@ -5,7 +5,7 @@ $secDir = LEGACY_FS . '/etapas/' . (IS_MOBILE ? 'mobile/' : '');
   <div class="col-lg-7 col-xl-8">
     <div class="title-badge-card mb-2">
       <h1 class="bg-azul text-green text-start f-anek fw-bold">
-        Quanto custa seu projeto de arquitetura e decoração?
+        <?= t('Quanto custa seu projeto de arquitetura e decoração?') ?>
       </h1>
     </div>
     <form id="form-inteligente">

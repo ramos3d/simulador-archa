@@ -62,18 +62,18 @@ export function renderEntradaTotals(avista, totalParcelado, saldoParcelas, entra
         set('totalEntradaValor', Format.currency(r.entrada));
         if (prefixEl)    { prefixEl.style.display = 'none'; }
         if (totalLineEl) { totalLineEl.style.display = 'none'; }
-        if (lblEl)       { lblEl.textContent = 'À vista · PIX'; }
+        if (lblEl)       { lblEl.textContent = window.jt('À vista · PIX'); }
         if (unitEl)      { unitEl.textContent = ''; }
     } else {
         // Cartão Nx: hero = por parcela, total abaixo
         set('totalEntradaValor', Format.currency(r.parcelaEntrada));
         if (prefixEl) {
             prefixEl.style.display = '';
-            prefixEl.textContent   = `${entradaParcelas}x de`;
+            prefixEl.textContent   = window.jt('{n}x de', { n: entradaParcelas });
         }
         if (totalLineEl) { totalLineEl.style.display = ''; }
         set('totalEntradaValorFull', Format.currency(r.entrada));
-        if (lblEl)  { lblEl.textContent = `${entradaParcelas}x no cartão`; }
+        if (lblEl)  { lblEl.textContent = window.jt('{n}x no cartão', { n: entradaParcelas }); }
         if (unitEl) { unitEl.textContent = ''; }
     }
 
@@ -81,8 +81,8 @@ export function renderEntradaTotals(avista, totalParcelado, saldoParcelas, entra
     const btnAmt = document.getElementById('btnFinishAmount');
     if (btnAmt) {
         btnAmt.textContent = entradaForma === 'pix'
-            ? `de ${Format.currency(r.entrada)}`
-            : `${entradaParcelas}x de ${Format.currency(r.parcelaEntrada)}`;
+            ? window.jt('de {v}', { v: Format.currency(r.entrada) })
+            : window.jt('{n}x de {v}', { n: entradaParcelas, v: Format.currency(r.parcelaEntrada) });
     }
 
     // Hidden helpers
@@ -106,8 +106,8 @@ function renderPixEntrada(pixJson) {
 
     if (container) {
         container.innerHTML = qr.encodedImage
-            ? `<img src="data:image/png;base64,${qr.encodedImage}" alt="QR Code PIX da entrada" class="img-fluid pix-qr">`
-            : '<p class="text-muted small">QR Code gerado. Abra seu banco para pagar.</p>';
+            ? `<img src="data:image/png;base64,${qr.encodedImage}" alt="${window.jt('QR Code PIX da entrada')}" class="img-fluid pix-qr">`
+            : `<p class="text-muted small">${window.jt('QR Code gerado. Abra seu banco para pagar.')}</p>`;
     }
     if (payloadEl && qr.payload) {
         payloadEl.textContent = qr.payload;
@@ -115,13 +115,13 @@ function renderPixEntrada(pixJson) {
             copyBtn.style.display = 'inline-block';
             copyBtn.onclick = () => {
                 navigator.clipboard.writeText(qr.payload).catch(() => {});
-                copyBtn.textContent = 'Copiado!';
-                setTimeout(() => { copyBtn.textContent = 'Copiar código'; }, 2000);
+                copyBtn.textContent = window.jt('Copiado!');
+                setTimeout(() => { copyBtn.textContent = window.jt('Copiar código'); }, 2000);
             };
         }
     }
     if (expiryEl && qr.expirationDate) {
-        expiryEl.textContent = 'Válido até: ' + qr.expirationDate;
+        expiryEl.textContent = window.jt('Válido até: {date}', { date: qr.expirationDate });
     }
 }
 
@@ -171,8 +171,8 @@ function validateDocForPix(form) {
     Validate.clearError(elNum);
     const tipo   = (elTipo?.value || '').toUpperCase();
     const numero = (elNum?.value  || '').replace(/\D/g, '');
-    if (tipo !== 'CPF') Validate.setError(elTipo, 'Para PIX, selecione CPF.');
-    if (!numero)        Validate.setError(elNum, 'Informe o número do CPF.');
+    if (tipo !== 'CPF') Validate.setError(elTipo, window.jt('Para PIX, selecione CPF.'));
+    if (!numero)        Validate.setError(elNum, window.jt('Informe o número do CPF.'));
     if (form.querySelector('.is-invalid')) { Validate.scrollToFirstError(form); return null; }
     return { tipo, numero };
 }
@@ -188,16 +188,16 @@ export async function generatePixQR(slug, avista, totalParcelado, saldoParcelas)
     const form = document.getElementById('formPersona') || document.body;
     const doc  = validateDocForPix(form);
     if (!doc) {
-        if (qrEl) qrEl.innerHTML = '<p class="text-warning small py-2">Preencha seu CPF acima para gerar o QR Code.</p>';
+        if (qrEl) qrEl.innerHTML = `<p class="text-warning small py-2">${window.jt('Preencha seu CPF acima para gerar o QR Code.')}</p>`;
         return { ok: false };
     }
 
-    if (qrEl) qrEl.innerHTML = '<div class="text-muted small py-3"><div class="spinner-border spinner-border-sm me-2"></div>Gerando QR Code...</div>';
+    if (qrEl) qrEl.innerHTML = `<div class="text-muted small py-3"><div class="spinner-border spinner-border-sm me-2"></div>${window.jt('Gerando QR Code...')}</div>`;
 
     // Sincroniza CPF
     const docResp = await Api.post('checkout/doc', { slug, documento_tipo: doc.tipo, documento_numero: doc.numero });
     if (!docResp.ok || docResp.data.ok === false) {
-        if (qrEl) qrEl.innerHTML = `<p class="text-danger small py-2">${docResp.data?.message || 'Erro ao validar CPF.'}</p>`;
+        if (qrEl) qrEl.innerHTML = `<p class="text-danger small py-2">${docResp.data?.message || window.jt('Erro ao validar CPF.')}</p>`;
         return { ok: false };
     }
 
@@ -222,7 +222,7 @@ export async function generatePixQR(slug, avista, totalParcelado, saldoParcelas)
     const data = await resp.json().catch(() => ({}));
 
     if (!resp.ok || data.ok === false) {
-        if (qrEl) qrEl.innerHTML = `<p class="text-danger small py-2">${data.message || data.error || 'Não foi possível gerar o PIX.'}</p>`;
+        if (qrEl) qrEl.innerHTML = `<p class="text-danger small py-2">${data.message || data.error || window.jt('Não foi possível gerar o PIX.')}</p>`;
         return { ok: false };
     }
 
@@ -282,7 +282,7 @@ export async function pay(slug, avista, totalParcelado, saldoParcelas, entradaFo
 
         const docResp = await Api.post('checkout/doc', { slug, documento_tipo: doc.tipo, documento_numero: doc.numero });
         if (!docResp.ok || docResp.data.ok === false) {
-            alert(docResp.data.message || 'Não foi possível validar o CPF.');
+            alert(docResp.data.message || window.jt('Não foi possível validar o CPF.'));
             return false;
         }
 
@@ -295,7 +295,7 @@ export async function pay(slug, avista, totalParcelado, saldoParcelas, entradaFo
 
         if (!resp.ok || data.ok === false) {
             Analytics.trackPaymentStatus(holder.nome, holder.email, holder.telefone, totalParcelado, 'entrada_pix', String(saldoParcelas), 'error');
-            alert(data.message || data.error || 'Não foi possível gerar o PIX da entrada.');
+            alert(data.message || data.error || window.jt('Não foi possível gerar o PIX da entrada.'));
             return false;
         }
 
@@ -321,9 +321,9 @@ export async function pay(slug, avista, totalParcelado, saldoParcelas, entradaFo
     const cardCvvEl   = document.getElementById('entradaCardCvv')    || document.getElementById('cardCvv');
     const cardExpEl   = document.getElementById('entradaCardExpiry') || document.getElementById('cardExpiry');
 
-    if (!Validate.luhn(card.number))                        { Validate.setError(cardNumEl, 'Número de cartão inválido.'); Validate.scrollToFirstError(form); return false; }
-    if (!/^\d{3,4}$/.test(card.cvv))                       { Validate.setError(cardCvvEl,  'CVV inválido.');              Validate.scrollToFirstError(form); return false; }
-    if (!Validate.cardExpiry(expiryMonth, expiryYear))      { Validate.setError(cardExpEl,  'Validade inválida.');         Validate.scrollToFirstError(form); return false; }
+    if (!Validate.luhn(card.number))                        { Validate.setError(cardNumEl, window.jt('Número de cartão inválido.')); Validate.scrollToFirstError(form); return false; }
+    if (!/^\d{3,4}$/.test(card.cvv))                       { Validate.setError(cardCvvEl,  window.jt('CVV inválido.'));              Validate.scrollToFirstError(form); return false; }
+    if (!Validate.cardExpiry(expiryMonth, expiryYear))      { Validate.setError(cardExpEl,  window.jt('Validade inválida.'));         Validate.scrollToFirstError(form); return false; }
 
     const resp = await fetch('./api/checkout-entrada.php', {
         method:  'POST',
